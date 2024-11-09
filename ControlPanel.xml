@@ -1,16 +1,28 @@
-<GridLayout 
+<GridLayout
+    padding = "0 0 0 100"
     childAlignment = "LowerRight"
-    cellSize = "200 200">
-    <TableLayout>
+    cellSize = "250 150">
+    <TableLayout rowBackgroundColor = "white">
         <row>
             <cell>
-                <Button>Energie</Button>
+                <text id = "energieValue" backgroundColor = "white"> 0 </text>
             </cell>
             <cell>
-                <Button>Gesundheit</Button>
+                <text id = "healthValue" backgroundColor = "white"> 0 </text>
             </cell>
             <cell>
-                <Button>Furcht</Button>
+                <text id = "furchtValue" backgroundColor = "white"> 0 </text>
+            </cell>
+        </row>
+        <row>
+            <cell>
+                <Button id = "energie" onClick = "energieCounter">Energie</Button>
+            </cell>
+            <cell>
+                <Button id = "gesundheit" onClick = "healthCounter">Gesundheit</Button>
+            </cell>
+            <cell>
+                <Button id = "furcht">Furcht</Button>
              </cell>
          </row>
         
