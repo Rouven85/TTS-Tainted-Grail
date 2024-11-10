@@ -4,21 +4,21 @@ function onLoad()
             Campaign = "Der letzte Ritter",
             
             CardID = "201",
-            MapIDRight = "211",
-            MapIDLeft = nil,
-            MapIDDown = "213",
-            MapIDUp = nil,
+            mapIDRight = "211",
+            mapIDLeft = nil,
+            mapIDDown = "213",
+            mapIDUp = nil,
             
-            DreamSymbol = true,
+            dreamSymbol = true,
 
             name = "Eiswüste",
 
-            ActionCost = 3,
-            GetMagic = 1,
+            areaActionCost = 3,
+            magic = 1,
             
             guid = nil,
-            description = "Das ist ein Test"
-        }
+            description = ""
+        },
     }
 end
 
@@ -32,6 +32,14 @@ function onObjectSpawn(obj)
         cardTbl.name = name --store its name
         cardTbl.guid = obj.getGUID() --and its new guid
         obj.setDescription(cardTbl.description) --and set its description to what it should be
+
       end 
     end
+
+    
   end
+  
+
+ function addMapTile()
+    print(cardData[name].magic)
+ end
