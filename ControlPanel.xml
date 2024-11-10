@@ -1,5 +1,5 @@
 <GridLayout
-    padding = "0 0 0 100"
+    padding = "0 100 0 10"
     childAlignment = "LowerRight"
     cellSize = "250 150">
     <TableLayout rowBackgroundColor = "white">
@@ -22,7 +22,7 @@
                 <Button id = "gesundheit" onClick = "healthCounter">Gesundheit</Button>
             </cell>
             <cell>
-                <Button id = "furcht">Furcht</Button>
+                <Button id = "furcht" onClick = "furchtCounter">Furcht</Button>
              </cell>
          </row>
         

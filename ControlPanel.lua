@@ -1,6 +1,6 @@
+-- AddAndSub Value from energie, Health or furcht --
+
 function energieCounter (player, value, id)
-    print(value)
-    local value = value
     
     if value == "-1" then
         x = UI.getValue("energieValue") + 1
@@ -12,9 +12,21 @@ function energieCounter (player, value, id)
 end
 
 function healthCounter(player, value, id)
-    print(value)
+    if value == "-1" then
+        x = UI.getValue("healthValue") + 1
+        UI.setValue("healthValue", x)
+    elseif value == "-2" then
+        x = UI.getValue("healthValue") - 1
+        UI.setValue("healthValue", x)
+    end 
 end
 
 function furchtCounter(player, value, id)
-
+    if value == "-1" then
+        x = UI.getValue("furchtValue") + 1
+        UI.setValue("furchtValue", x)
+    elseif value == "-2" then
+        x = UI.getValue("furchtValue") - 1
+        UI.setValue("furchtValue", x)
+    end 
 end
