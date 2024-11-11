@@ -8,6 +8,14 @@ function energieCounter (player, value, id)
 
         local playerBoard = getObjectFromGUID("ad0ab4")
         local energieMarker = getObjectFromGUID("04e3d0")
+
+        local snapPoints = playerBoard.getSnapPoints()
+        print(snapPoints)
+        
+        local oldPosition = energieMarker.getPosition()
+        local newPosition = oldPosition + vector(0,0, 0.4)
+       
+        energieMarker.setPosition(newPosition)
        
     elseif value == "-2" then
         x = UI.getValue("energieValue") - 1
