@@ -9,19 +9,19 @@
             <cell>
                <Panel>
                     <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/>
-                    <Button id = "energie" onClick = "energieCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#dfc390">+</Button>
+                    <Button id = "energieMinusBtn" onClick = "energieCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#dfc390">+</Button>
                </Panel>             
             </cell>
             <cell>
                 <Panel>
                     <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/>
-                    <Button id = "gesundheit" onClick = "healthCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#dfc390">+</Button>
+                    <Button id = "gesundheitPlusBtn" onClick = "healthCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#dfc390">+</Button>
                 </Panel>  
             </cell>
             <cell>
                 <Panel>
                     <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/>
-                    <Button id = "furcht" onClick = "furchtCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#dfc390">+</Button>
+                    <Button id = "furchtPlusBtn" onClick = "furchtCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#dfc390">+</Button>
                 </Panel> 
                 </cell>
             </row>
@@ -49,19 +49,19 @@
             <cell> 
                 <Panel>
                     <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/>
-                    <Button id = "energie" onClick = "energieCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#dfc390">-</Button>
+                    <Button id = "energiePlusBtn" onClick = "energieCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#dfc390">-</Button>
                 </Panel>
             </cell>
             <cell>
                 <Panel>
                     <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/>
-                    <Button id = "gesundheit" onClick = "healthCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#dfc390">-</Button>
+                    <Button id = "gesundheitMinusBtn" onClick = "healthCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#dfc390">-</Button>
                 </Panel>
             </cell>
             <cell>
                 <Panel>
                     <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/>
-                    <Button id = "furcht" onClick = "furchtCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#dfc390">-</Button>
+                    <Button id = "furchtMinusBtn" onClick = "furchtCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#dfc390">-</Button>
                 </Panel>
             </cell>
         </row>
