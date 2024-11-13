@@ -1,36 +1,81 @@
-<GridLayout
-    padding = "0 100 0 10"
+<!-- <GridLayout
+    padding = "0 100 0 100"
     childAlignment = "LowerRight"
-    cellSize = "250 150">
-    <TableLayout rowBackgroundColor = "white">
-        <row>
+    >
+</GridLayout> -->
+<Panel width = "300" height = "200" rectAlignment="LowerRight">
+    <TableLayout columnWidths = "60 60 60">
+        <row preferredHeight = "30">
             <cell>
-                <text id = "energieValue" backgroundColor = "white"> 0 </text>
+               <Panel>
+                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/>
+                    <Button id = "energie" onClick = "energieCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#dfc390">+</Button>
+               </Panel>             
             </cell>
             <cell>
-                <text id = "healthValue" backgroundColor = "white"> 0 </text>
+                <Panel>
+                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/>
+                    <Button id = "gesundheit" onClick = "healthCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#dfc390">+</Button>
+                </Panel>  
             </cell>
             <cell>
-                <text id = "furchtValue" backgroundColor = "white"> 0 </text>
+                <Panel>
+                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/>
+                    <Button id = "furcht" onClick = "furchtCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#dfc390">+</Button>
+                </Panel> 
+                </cell>
+            </row>
+        <row preferredHeight = "50">
+            <cell>
+                <Panel>
+                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "60" color="#FFFFFF80"/>
+                    <text id = "energieValue" fontStyle = "Bold" fontSize = "25" color = "#dfc390"> 6 </text>
+                </Panel>
+            </cell>
+            <cell>
+                <Panel>
+                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "60" color="#FFFFFF80"/>
+                    <text id = "healthValue" fontStyle = "Bold" fontSize = "25" color = "#dfc390"> 8 </text>
+                </Panel>
+            </cell>
+            <cell>
+                <Panel>
+                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "60" color="#FFFFFF80"/>  
+                    <text id = "furchtValue" fontStyle = "Bold" fontSize = "25" color = "#dfc390"> 0 </text>
+                </Panel>
             </cell>
         </row>
-        <row>
-            <cell>
-                <Button id = "energie" onClick = "energieCounter">Energie</Button>
+        <row preferredHeight = "30">
+            <cell> 
+                <Panel>
+                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/>
+                    <Button id = "energie" onClick = "energieCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#dfc390">-</Button>
+                </Panel>
             </cell>
             <cell>
-                <Button id = "gesundheit" onClick = "healthCounter">Gesundheit</Button>
+                <Panel>
+                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/>
+                    <Button id = "gesundheit" onClick = "healthCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#dfc390">-</Button>
+                </Panel>
             </cell>
             <cell>
-                <Button id = "furcht" onClick = "furchtCounter">Furcht</Button>
-             </cell>
-         </row>
+                <Panel>
+                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/>
+                    <Button id = "furcht" onClick = "furchtCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#dfc390">-</Button>
+                </Panel>
+            </cell>
+        </row>
         
-        <row>
-            <Button>Button Two</Button>
+        <row preferredHeight = "80" >
+            <cell>
+                <Image image="https://steamusercontent-a.akamaihd.net/ugc/54700533762036748/5B1A4E17EB6B8CAA6896C9B3B0287CD2D2D04066/" color="#FFFFFF100"/>
+            </cell>
+            <cell>
+                <Image image="https://steamusercontent-a.akamaihd.net/ugc/54700533762219182/0DC058285F89AC551F2019B37AC1CFE5FFEB364A/" color="#FFFFFF100"/>
+            </cell>
+            <cell>
+                <Image image="https://steamusercontent-a.akamaihd.net/ugc/54700533762223228/34F9722738E1CBFCEFCDBB38C3105B81B171AD76/" color="#FFFFFF100"/>
+            </cell>
         </row>
-        <row>
-             <Button>Button Three</Button>
-       </row>
     </TableLayout>
-</GridLayout>
+</Panel>
