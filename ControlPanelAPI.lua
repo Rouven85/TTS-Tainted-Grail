@@ -1,8 +1,11 @@
+require ("/Libraries/CharakterParams")
+
 -- AddAndSub Value from energie, Health or furcht --
 function energieCounter(player, value, id)
-    local sloanBoard = getObjectFromGUID("ad0ab4")
+    log(charData.Sloan.energie)
     local energieMarker = getObjectFromGUID("04e3d0")
     local energieMarkerPosition = energieMarker.getPosition()
+    local sloanBoard = getObjectFromGUID("ad0ab4")
     local snapPoints = sloanBoard.getSnapPoints()
     local point1 = sloanBoard.positionToWorld(snapPoints[28].position)
     local point2 = sloanBoard.positionToWorld(snapPoints[29].position)
@@ -150,3 +153,5 @@ function furchtCounter(player, value, id)
     end 
     
 end
+
+
