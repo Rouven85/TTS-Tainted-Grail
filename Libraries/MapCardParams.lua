@@ -1,10 +1,11 @@
 -- Cardlibrary for GameMap --
 
   mapCardData = {
-      ["Eiswueste"] = {
+      ["Eiswüste"] = {
           Campaign = "Der letzte Ritter",
-          name = "Eiswueste",
+          name = "Eiswüste",
           guid = nil,
+          description = "a",
           
 
           -- location numbers --
@@ -53,7 +54,7 @@
   }
 
 
---[[ function onObjectSpawn(obj)
+--[[   function onObjectSpawn(obj)
     --Cards get their guids when they spawn, if all your cards start in a deck all you need is this
     --since taking a card out of a deck makes it spawn and would trigger this function that will update its guid
     if obj.hasTag("MapCard") then -- if the spawned object is a card
@@ -68,9 +69,9 @@
     end
 
     
-  end 
+  end  --]]
   
 
- function addMapTile()
+--[[  function addMapTile()
     print(cardData[name].magic)
- end  --]]
+ end   --]]
