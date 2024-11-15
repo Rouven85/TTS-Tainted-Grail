@@ -3,8 +3,9 @@
     childAlignment = "LowerRight"
     >
 </GridLayout> -->
-<Panel width = "300" height = "200" rectAlignment="LowerRight">
-    <TableLayout columnWidths = "60 60 60">
+<Panel width = "300" height = "340" rectAlignment = "LowerRight" offsetXY = "-80 10" allowDragging = "true" returnToOriginalPositionWhenReleased = "false" visibility = "White">
+
+    <TableLayout columnWidths = "60 60 60" padding = "60 0 78 0">
         <row preferredHeight = "30">
             <cell>
                <Panel>
@@ -79,3 +80,4 @@
         </row>
     </TableLayout>
 </Panel>
+

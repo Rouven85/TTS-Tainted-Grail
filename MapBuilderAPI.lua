@@ -6,14 +6,44 @@ end
 
 function initSpawnedMap(object)
     local obj = object
-    local guid = obj.getGUID()
-    local name = obj.getName()
+    local bounds = obj.getBounds()
+    --log(bounds.size[1])
+    local xValue = bounds.size[1] * -18
 
-    if name == mapCardData[name].name then
-        cardParams = mapCardData[name]
-        cardParams.guid = guid
+    x = tostring(math.floor(xValue+0.5)) 
+    local rightBtnPos = x .." 0" .." -100"
 
-        --log (mapCardData[name])
+    
+    log(rightBtnPos)
+
+
+    if obj.hasTag("MapCard") then
+        local name = obj.getName()
+
+        if name == mapCardData[name].name then
+            cardParams = mapCardData[name]
+            cardParams.guid = obj.getGUID()
+            log(cardParams.description)
+            --log (mapCardData[name])
+
+            obj.UI.setXmlTable({
+                {
+                    tag = "Button",
+                    attributes = {
+                        height = "200",
+                        width = "50",
+                        position = rightBtnPos,
+                        rotation = "0 0 180",
+                        
+                    },
+                    value = "Hallo"
+                    },
+                }
+            )
+
+        end
     end
-    --log (name)
+
+
+
 end
