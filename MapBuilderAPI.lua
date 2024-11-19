@@ -40,16 +40,15 @@ function initLoadedMap()
                 local initXML = [[<Panel></Panel>]]
                 v.UI.setXml(initXML)
                 local buttonsXML = ""
-                for _, id in ipairs(mapCardData[name].mapID) do
-                    
+                for _, id in ipairs(mapCardData[name].mapID) do   
                     if id.right ~= nil then
-                        buttonsXML = buttonsXML .. [[<Button width = "200" height = "100" position = " 300 -100 -200">Hallo</Button>]]
+                        buttonsXML = buttonsXML .. string.format([[<Button width = "50" height = "150" position = "%s 0 -100">Hallo</Button>]],x)
                     else
                         buttonsXML = buttonsXML ..[[]]             
                     end
                     
                     if id.down ~= nil then
-                        buttonsXML = buttonsXML .. [[<Button width = "200" height = "100" position = " 600 -100 -200">Hallo</Button>]]
+                        buttonsXML = buttonsXML .. string.format([[<Button width = "150" height = "50" position = "0 %s -100">Hallo</Button>]],y)
                     else
                         buttonsXML = buttonsXML ..[[]] 
                     end
@@ -64,12 +63,9 @@ function initLoadedMap()
                         buttonsXML = buttonsXML .. [[<Button width = "200" height = "100" position = " 600 -100 -200">Hallo</Button>]]
                     else
                         buttonsXML = buttonsXML ..[[]]
-                    end
-                            
-                    
+                    end   
                 end 
                 local combinedXML = initXML:gsub("</Panel>",buttonsXML .."</Panel>")
-                log(combinedXML)
                 v.UI.setXml(combinedXML)    
             end
         end    
