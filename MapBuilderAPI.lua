@@ -6,44 +6,67 @@ end
 
 function initSpawnedMap(object)
     local obj = object
-    local bounds = obj.getBounds()
-    --log(bounds.size[1])
-    local xValue = bounds.size[1] * -18
-
-    x = tostring(math.floor(xValue+0.5)) 
-    local rightBtnPos = x .." 0" .." -100"
-
-    
-    log(rightBtnPos)
-
 
     if obj.hasTag("MapCard") then
         local name = obj.getName()
+        initLoadedMap()
 
         if name == mapCardData[name].name then
-            cardParams = mapCardData[name]
+            local cardParams = mapCardData[name]
             cardParams.guid = obj.getGUID()
             log(cardParams.description)
-            --log (mapCardData[name])
-
-            obj.UI.setXmlTable({
-                {
-                    tag = "Button",
-                    attributes = {
-                        height = "200",
-                        width = "50",
-                        position = rightBtnPos,
-                        rotation = "0 0 180",
-                        
-                    },
-                    value = "Hallo"
-                    },
-                }
-            )
-
+           
         end
     end
-
-
-
 end
+
+function initLoadedMap()
+    local obj = getAllObjects()
+    for _,v in ipairs(obj) do
+        
+        if v.hasTag("MapCard") then
+            local name = v.getName()
+            local bounds = v.getBounds()
+            
+            if mapCardData[name] ~= nil then
+                local xValue = (bounds.size[3] / 2 *(-100)+75) 
+                local x = tostring(math.floor(xValue+0.5)) 
+                local rightBtnPos = x .." 0" .." -100"
+
+                local yValue = (bounds.size[1] / 2 *(100) - 100)
+                local y = tostring(math.floor(yValue+0.5)) 
+                local downBtnPos = "0 " .. y .. " -100"
+                
+                local initXML = [[<Panel></Panel>]]
+                v.UI.setXml(initXML)
+                
+                for _, id in ipairs(mapCardData[name].mapID) do
+
+                    if id.right ~= nil then
+                        rightBtn = [[<Button width = "200" height = "100" position = " 300 -100 -200">Hallo</Button>]] ..
+                                [[<Button width = "200" height = "100" position = " 100 -300 -200">Hallo</Button>]]
+                                
+                    end
+                    
+                    if id.down ~= nil then
+                        downBtn = [[<Button width = "200" height = "100" position = " 600 -100 -200">Hallo</Button>]] ..
+                                [[<Button width = "200" height = "100" position = " -400 -300 200">Hallo</Button>]]
+                                
+                    end
+                        --[[ if id.left ~= nil then     
+                            
+                        else
+                            leftBtn = [[<Panel></Panel>]]
+                        --end --]]
+                            
+                   
+                end 
+                local combinedXML = initXML:gsub("</Panel>",rightBtn .. downBtn .."</Panel>")
+                log(combinedXML)
+                v.UI.setXml(combinedXML)    
+            end
+        end    
+    end
+ end
+ 
+                    

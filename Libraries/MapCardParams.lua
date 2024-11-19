@@ -10,10 +10,11 @@
 
           -- location numbers --
           CardID = "201",
-          mapIDRight = "211",
-          mapIDLeft = nil,
-          mapIDDown = "213",
-          mapIDUp = nil,
+          mapID = ({
+            {["right"] = "211"}, 
+            {["left"] = nil},
+            {["down"]= "213"},
+            {["up"] = nil}}),
           
           -- location Symbols --
           dream = true,
