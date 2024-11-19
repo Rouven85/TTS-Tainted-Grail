@@ -39,29 +39,36 @@ function initLoadedMap()
                 
                 local initXML = [[<Panel></Panel>]]
                 v.UI.setXml(initXML)
-                
+                local buttonsXML = ""
                 for _, id in ipairs(mapCardData[name].mapID) do
-
+                    
                     if id.right ~= nil then
-                        rightBtn = [[<Button width = "200" height = "100" position = " 300 -100 -200">Hallo</Button>]] ..
-                                [[<Button width = "200" height = "100" position = " 100 -300 -200">Hallo</Button>]]
-                                
+                        buttonsXML = buttonsXML .. [[<Button width = "200" height = "100" position = " 300 -100 -200">Hallo</Button>]]
+                    else
+                        buttonsXML = buttonsXML ..[[]]             
                     end
                     
                     if id.down ~= nil then
-                        downBtn = [[<Button width = "200" height = "100" position = " 600 -100 -200">Hallo</Button>]] ..
-                                [[<Button width = "200" height = "100" position = " -400 -300 200">Hallo</Button>]]
-                                
+                        buttonsXML = buttonsXML .. [[<Button width = "200" height = "100" position = " 600 -100 -200">Hallo</Button>]]
+                    else
+                        buttonsXML = buttonsXML ..[[]] 
                     end
-                        --[[ if id.left ~= nil then     
+
+                    if id.up ~= nil then
+                        buttonsXML = buttonsXML .. [[<Button width = "200" height = "100" position = " 600 -100 -200">Hallo</Button>]] 
+                    else
+                        buttonsXML = buttonsXML ..[[]]                
+                    end
+                    
+                    if id.left ~= nil then
+                        buttonsXML = buttonsXML .. [[<Button width = "200" height = "100" position = " 600 -100 -200">Hallo</Button>]]
+                    else
+                        buttonsXML = buttonsXML ..[[]]
+                    end
                             
-                        else
-                            leftBtn = [[<Panel></Panel>]]
-                        --end --]]
-                            
-                   
+                    
                 end 
-                local combinedXML = initXML:gsub("</Panel>",rightBtn .. downBtn .."</Panel>")
+                local combinedXML = initXML:gsub("</Panel>",buttonsXML .."</Panel>")
                 log(combinedXML)
                 v.UI.setXml(combinedXML)    
             end
