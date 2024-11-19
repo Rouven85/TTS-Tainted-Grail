@@ -2,6 +2,7 @@ require("ControlPanelAPI")
 require("MapBuilderAPI")
 
 function onLoad()
+    
     initLoadedMap()
 end
 

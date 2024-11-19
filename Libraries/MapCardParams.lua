@@ -5,7 +5,7 @@
           Campaign = "Der letzte Ritter",
           name = "Eiswüste",
           guid = nil,
-          description = "a",
+          description = "",
           
 
           -- location numbers --
@@ -26,23 +26,23 @@
           -- Resources --
           areaActionCost = 3,
           magic = 1   
-      }
-
---[[       ["Gefährliche Eisklüfte"] = {
+      },
+      ["Zerklüftetes Gebeinfeld"] = {
         Campaign = "Der letzte Ritter",
-        name = "Gefährliche Eisklüfte",
+        name = "Zerklüftetes Gebeinfeld",
         guid = nil,
-        description = ""
+        description = "",
 
         -- location numbers --
-        CardID = "202",
-        mapIDRight = "201",
-        mapIDLeft = "223",
-        mapIDDown = "214",
-        mapIDUp = nil,
+        CardID = "211",
+        mapID = ({
+          {["right"] = nil}, 
+          {["left"] = "201"},
+          {["down"]= "212"},
+          {["up"] = nil}}),
         
         -- location Symbols --
-        dream = false,
+        dream = true,
         menhir = false,
         frindlyVillage = true,
         enemyVillage = false,
@@ -51,7 +51,7 @@
         -- Resources --
         areaActionCost = nil,
         magic = nil   
-      } --]]
+      }
   }
 
 
