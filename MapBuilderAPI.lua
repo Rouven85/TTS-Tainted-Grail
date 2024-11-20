@@ -15,10 +15,14 @@ function createButtonsForMapCard(obj, mapCardData)
         local yd = 125
         local yu = -125
 
+       -- local cardParams.guid = obj.getGUID()
+        local guid = obj.getGUID()
+        log(guid)
+
         -- Create Buttons --
         for _, id in ipairs(cardParams.mapID) do
             if id.right then
-                buttonsXML = buttonsXML .. string.format([[<Button onClick="Global/right_BtnClick" width="50" height="150" position="%s 0 -100" rotation="0 0 180">Hallo</Button>]], xr)
+                buttonsXML = buttonsXML .. string.format([[<Button onClick="Global/right_BtnClick" id="%s" width="50" height="150" position="%s 0 -100" rotation="0 0 180">Hallo</Button>]], guid,xr)
             end
             if id.down then
                 buttonsXML = buttonsXML .. string.format([[<Button onClick="Global/down_BtnClick" width="150" height="50" position="0 %s -100" rotation="0 0 180">Hallo</Button>]], yd)
@@ -38,16 +42,27 @@ function createButtonsForMapCard(obj, mapCardData)
         -- Logge nach der Verzögerung
         Wait.time(function()
             
-        end, 0.5)  -- Verzögerung von 0.5 Sekunden
+        end, 0.2)  
     end
 end
 
 function right_BtnClick(player, value, id)
-    log("Button Clicked: right_BtnClick")  -- Einfacher Debug-Log
+    local obj = getObjectFromGUID(id)
+    local name = obj.getName()
+    local rightCardID = mapCardData[name].mapID[1].right
+    local container = getObjectFromGUID("a9f2fd")
+    --log(rightCardID)
+    for _, value in pairs(mapCardData) do
+        if value.CardID == rightCardID then
+            local newMapCard = value.name
+            log(newMapCard)
+        end 
+    local card = getCardByName(container, newMapCard)
+    end
 end
 
 function down_BtnClick(player, value, id)
-    log("Button Clicked: down_BtnClick")  -- Einfacher Debug-Log
+    log("Button Clicked: down_BtnClick") 
 end
 
 function initLoadedMap()
@@ -65,4 +80,19 @@ function initSpawnedMap(object)
         end
     end, 0.1)
 end
-                 
+
+function getCardByName(container, newMapCard)
+    local objects = container.getObjects() -- Holt eine Liste aller Objekte im Container
+    for _, obj in ipairs(objects) do
+        if obj.name == cardName then
+            -- Ziehe die Karte aus dem Container
+            local params = {
+                position = container.getPosition() + Vector(0, 2, 0), -- Position über dem Container
+                rotation = Vector(0, 180, 0) -- Optional: Rotation der Karte
+            }
+            local card = container.takeObject(params)
+            log("Karte '" .. cardName .. "' wurde aus dem Container genommen.")
+            return card
+        end
+    end
+end
