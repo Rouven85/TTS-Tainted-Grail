@@ -55,9 +55,8 @@ function right_BtnClick(player, value, id)
     for _, value in pairs(mapCardData) do
         if value.CardID == rightCardID then
             local newMapCard = value.name
-            log(newMapCard)
+            local card = getCardByName(container, newMapCard)
         end 
-    local card = getCardByName(container, newMapCard)
     end
 end
 
@@ -83,15 +82,18 @@ end
 
 function getCardByName(container, newMapCard)
     local objects = container.getObjects() -- Holt eine Liste aller Objekte im Container
+    log(newMapCard)
     for _, obj in ipairs(objects) do
-        if obj.name == cardName then
+       
+        if obj.name == newMapCard then
+            log(newMapCard)
             -- Ziehe die Karte aus dem Container
             local params = {
-                position = container.getPosition() + Vector(0, 2, 0), -- Position über dem Container
+                position = container.getPosition() + Vector(5, 2, 0), -- Position über dem Container
                 rotation = Vector(0, 180, 0) -- Optional: Rotation der Karte
             }
             local card = container.takeObject(params)
-            log("Karte '" .. cardName .. "' wurde aus dem Container genommen.")
+            log("Karte '" .. newMapCard .. "' wurde aus dem Container genommen.")
             return card
         end
     end
