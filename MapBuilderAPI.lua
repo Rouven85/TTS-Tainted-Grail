@@ -48,14 +48,16 @@ end
 
 function right_BtnClick(player, value, id)
     local obj = getObjectFromGUID(id)
+    local currentCardPos = obj.getPosition()
     local name = obj.getName()
     local rightCardID = mapCardData[name].mapID[1].right
     local container = getObjectFromGUID("a9f2fd")
+    local bounds = obj.getBounds()
     --log(rightCardID)
     for _, value in pairs(mapCardData) do
         if value.CardID == rightCardID then
             local newMapCard = value.name
-            local card = getCardByName(container, newMapCard)
+            local card = getCardByName(container, newMapCard, bounds, currentCardPos)
         end 
     end
 end
@@ -80,16 +82,17 @@ function initSpawnedMap(object)
     end, 0.1)
 end
 
-function getCardByName(container, newMapCard)
+function getCardByName(container, newMapCard, bounds, currentCardPos)
     local objects = container.getObjects() -- Holt eine Liste aller Objekte im Container
-    log(newMapCard)
+     
+    log(currentCardPos)
     for _, obj in ipairs(objects) do
        
         if obj.name == newMapCard then
             log(newMapCard)
             -- Ziehe die Karte aus dem Container
             local params = {
-                position = container.getPosition() + Vector(5, 2, 0), -- Position über dem Container
+                position = currentCardPos + Vector(bounds.size.x, 2, 0), -- Position über dem Container
                 rotation = Vector(0, 180, 0) -- Optional: Rotation der Karte
             }
             local card = container.takeObject(params)
