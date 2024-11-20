@@ -16,22 +16,25 @@ function createButtonsForMapCard(obj, mapCardData)
         local yu = -125
 
        -- local cardParams.guid = obj.getGUID()
-        local guid = obj.getGUID()
-        log(guid)
+        
 
         -- Create Buttons --
         for _, id in ipairs(cardParams.mapID) do
             if id.right then
+                local guid = obj.getGUID()
                 buttonsXML = buttonsXML .. string.format([[<Button onClick="Global/right_BtnClick" id="%s" width="50" height="150" position="%s 0 -100" rotation="0 0 180">Hallo</Button>]], guid,xr)
             end
             if id.down then
-                buttonsXML = buttonsXML .. string.format([[<Button onClick="Global/down_BtnClick" width="150" height="50" position="0 %s -100" rotation="0 0 180">Hallo</Button>]], yd)
+                local guid = obj.getGUID()
+                buttonsXML = buttonsXML .. string.format([[<Button onClick="Global/down_BtnClick" id="%s" width="150" height="50" position="0 %s -100" rotation="0 0 180">Hallo</Button>]], guid,yd)
             end
             if id.up then
-                buttonsXML = buttonsXML .. string.format([[<Button onClick="Global/up_BtnClick" width="200" height="100" position="0 %s -100" rotation="0 0 180">Hallo</Button>]], yu)
+                local guid = obj.getGUID()
+                buttonsXML = buttonsXML .. string.format([[<Button onClick="Global/up_BtnClick" id="%s" width="150" height="50" position="0 %s -100" rotation="0 0 180">Hallo</Button>]], guid,yu)
             end
             if id.left then
-                buttonsXML = buttonsXML .. string.format([[<Button onClick="Global/left_BtnClick" width="50" height="150" position="%s 0 -100" rotation="0 0 180">Hallo</Button>]], xl)
+                local guid = obj.getGUID()
+                buttonsXML = buttonsXML .. string.format([[<Button onClick="Global/left_BtnClick" id="%s" width="50" height="150" position="%s 0 -100" rotation="0 0 180">Hallo</Button>]], guid,xl)
             end
         end    
 
@@ -63,7 +66,22 @@ function right_BtnClick(player, value, id)
 end
 
 function down_BtnClick(player, value, id)
-    log("Button Clicked: down_BtnClick") 
+    local obj = getObjectFromGUID(id)
+    log(id)
+    local currentCardPos = obj.getPosition()
+    local name = obj.getName()
+    log(name)
+    local downCardID = mapCardData[name].mapID[3].down
+    local container = getObjectFromGUID("a9f2fd")
+    local bounds = obj.getBounds()
+    --log(rightCardID)
+    for _, value in pairs(mapCardData) do
+        if value.CardID == downCardID then
+            local newMapCard = value.name
+            log(newMapCard)
+            local card = getCardByName(container, newMapCard, bounds, currentCardPos)
+        end 
+    end
 end
 
 function initLoadedMap()
@@ -85,11 +103,9 @@ end
 function getCardByName(container, newMapCard, bounds, currentCardPos)
     local objects = container.getObjects() -- Holt eine Liste aller Objekte im Container
      
-    log(currentCardPos)
     for _, obj in ipairs(objects) do
        
         if obj.name == newMapCard then
-            log(newMapCard)
             -- Ziehe die Karte aus dem Container
             local params = {
                 position = currentCardPos + Vector(bounds.size.x, 2, 0), -- Position über dem Container

@@ -25,7 +25,7 @@
 
           -- Resources --
           areaActionCost = 3,
-          magic = 1   
+          magic = 1,   
       },
       ["Zerklüftetes Gebeinfeld"] = {
         Campaign = "Der letzte Ritter",
@@ -50,8 +50,33 @@
 
         -- Resources --
         areaActionCost = nil,
-        magic = nil   
-      }
+        magic = nil,  
+      },
+      ["Schimmernder Wald"] = {
+        Campaign = "Der letzte Ritter",
+        name = "Schimmernder Wald",
+        guid = nil,
+        description = "",
+
+        -- location numbers --
+        CardID = "213",
+        mapID = ({
+          {["right"] = "212"}, 
+          {["left"] = "214"},
+          {["down"]= nil},
+          {["up"] = "201"}}),
+        
+        -- location Symbols --
+        dream = true,
+        menhir = false,
+        frindlyVillage = false,
+        enemyVillage = false,
+        instantEffect = false,
+
+        -- Resources --
+        areaActionCost = 2,
+        magic = nil,  
+      },
   }
 
 
