@@ -15,19 +15,19 @@ function createButtonsForMapCard(obj, mapCardData)
         for _, id in ipairs(cardParams.mapID) do
             if id.right then
                 local guid = obj.getGUID()
-                buttonsXML = buttonsXML .. string.format([[<Button onClick="Global/right_BtnClick" id="%s" width="50" height="150" position="%s 0 -100" rotation="0 0 180">Hallo</Button>]], guid,xr)
+                buttonsXML = buttonsXML .. string.format([[<Button onClick="Global/right_BtnClick" id="%s" width="50" height="150" position="%s 0 -100" rotation="0 0 180" color = "none"></Button>]], guid,xr)
             end
             if id.down then
                 local guid = obj.getGUID()
-                buttonsXML = buttonsXML .. string.format([[<Button onClick="Global/down_BtnClick" id="%s" width="150" height="50" position="0 %s -100" rotation="0 0 180">Hallo</Button>]], guid,yd)
+                buttonsXML = buttonsXML .. string.format([[<Button onClick="Global/down_BtnClick" id="%s" width="150" height="50" position="0 %s -100" rotation="0 0 180" color = "none"></Button>]], guid,yd)
             end
             if id.up then
                 local guid = obj.getGUID()
-                buttonsXML = buttonsXML .. string.format([[<Button onClick="Global/up_BtnClick" id="%s" width="150" height="50" position="0 %s -100" rotation="0 0 180">Hallo</Button>]], guid,yu)
+                buttonsXML = buttonsXML .. string.format([[<Button onClick="Global/up_BtnClick" id="%s" width="150" height="50" position="0 %s -100" rotation="0 0 180" color = "none"></Button>]], guid,yu)
             end
             if id.left then
                 local guid = obj.getGUID()
-                buttonsXML = buttonsXML .. string.format([[<Button onClick="Global/left_BtnClick" id="%s" width="50" height="150" position="%s 0 -100" rotation="0 0 180">Hallo</Button>]], guid,xl)
+                buttonsXML = buttonsXML .. string.format([[<Button onClick="Global/left_BtnClick" id="%s" width="50" height="150" position="%s 0 -100" rotation="0 0 180" color = "none"></Button>]], guid,xl)
             end
         end    
         -- combine XML and set XML --
