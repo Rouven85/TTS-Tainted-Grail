@@ -49,9 +49,9 @@ function right_BtnClick(player, value, id)
     local bounds = obj.getBounds()
     local direction = "right"
     
-    for _, value in pairs(mapCardData) do
-        if value.CardID == rightCardID then
-            local newMapCard = value.name
+    for _, v in pairs(mapCardData) do
+        if v.CardID == rightCardID then
+            local newMapCard = v.name
             local card = getCardByName(container, newMapCard, bounds, currentCardPos, direction)
         end 
     end
@@ -66,9 +66,9 @@ function down_BtnClick(player, value, id)
     local bounds = obj.getBounds()
     local direction = "down"
 
-    for _, value in pairs(mapCardData) do
-        if value.CardID == downCardID then
-            local newMapCard = value.name
+    for _, v in pairs(mapCardData) do
+        if v.CardID == downCardID then
+            local newMapCard = v.name
             local card = getCardByName(container, newMapCard, bounds, currentCardPos, direction)
         end 
     end
@@ -83,9 +83,9 @@ function up_BtnClick(player, value, id)
     local bounds = obj.getBounds()
     local direction = "up"
 
-    for _, value in pairs(mapCardData) do
-        if value.CardID == upCardID then
-            local newMapCard = value.name
+    for _, v in pairs(mapCardData) do
+        if v.CardID == upCardID then
+            local newMapCard = v.name
             local card = getCardByName(container, newMapCard, bounds, currentCardPos, direction)
         end 
     end
@@ -100,9 +100,13 @@ function left_BtnClick(player, value, id)
     local bounds = obj.getBounds()
     local direction = "left"
 
-    for _, value in pairs(mapCardData) do
-        if value.CardID == upCardID then
-            local newMapCard = value.name
+    for _, v in pairs(mapCardData) do
+        if v.CardID == upCardID then
+            log(v.CardID)
+            log(upCardID)
+            local newMapCard = v.name
+            log(newMapCard)
+            log(v.name)
             local card = getCardByName(container, newMapCard, bounds, currentCardPos, direction)
         end 
     end
@@ -129,26 +133,32 @@ function getCardByName(container, newMapCard, bounds, currentCardPos, direction)
     
     for _, obj in ipairs(objects) do
         if obj.name == newMapCard then
+            
+            log(guid)
             if direction == "right" then
                 local params = {
+                    guid = obj.guid,
                     position = currentCardPos + Vector(bounds.size.x, 2, 0), -- Position rechts neben Ausgangskarte
                     rotation = Vector(0, 180, 0) 
                 }
                 local card = container.takeObject(params)
             elseif direction == "down" then
                 local params = {
+                    guid = obj.guid,
                     position = currentCardPos + Vector(0, 2, -bounds.size.z), -- Position unter Ausgangskarte
                     rotation = Vector(0, 180, 0) 
                 } 
                 local card = container.takeObject(params)
             elseif direction == "up" then 
                 local params = {
+                    guid = obj.guid,
                     position = currentCardPos + Vector(0, 2, bounds.size.z), -- Position über Ausgangskarte
                     rotation = Vector(0, 180, 0) 
                 }
                 local card = container.takeObject(params)
             elseif direction == "left" then
                 local params = {
+                    guid = obj.guid,
                     position = currentCardPos + Vector(-bounds.size.x, 2, 0), -- Position links neben Ausgangskarte
                     rotation = Vector(0, 180, 0) 
                 }
