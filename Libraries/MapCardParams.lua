@@ -377,7 +377,7 @@
         -- Resources --
         areaActionCost = 3,
       },
-      ["Menhir-Tundrat"] = {
+      ["Menhir-Tundra"] = {
         Campaign = "Der letzte Ritter",
         name = "Menhir-Tundra",
         guid = nil,
