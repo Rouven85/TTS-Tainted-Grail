@@ -45,7 +45,7 @@ function right_BtnClick(player, value, id)
     local currentCardPos = obj.getPosition()
     local name = obj.getName()
     local rightCardID = mapCardData[name].mapID[1].right
-    local container = getObjectFromGUID("a9f2fd")
+    local container = getObjectFromGUID("7902bb")
     local bounds = obj.getBounds()
     local direction = "right"
     
@@ -62,7 +62,7 @@ function down_BtnClick(player, value, id)
     local currentCardPos = obj.getPosition()
     local name = obj.getName()
     local downCardID = mapCardData[name].mapID[3].down
-    local container = getObjectFromGUID("a9f2fd")
+    local container = getObjectFromGUID("7902bb")
     local bounds = obj.getBounds()
     local direction = "down"
 
@@ -79,7 +79,7 @@ function up_BtnClick(player, value, id)
     local currentCardPos = obj.getPosition()
     local name = obj.getName()
     local upCardID = mapCardData[name].mapID[4].up
-    local container = getObjectFromGUID("a9f2fd")
+    local container = getObjectFromGUID("7902bb")
     local bounds = obj.getBounds()
     local direction = "up"
 
@@ -96,7 +96,7 @@ function left_BtnClick(player, value, id)
     local currentCardPos = obj.getPosition()
     local name = obj.getName()
     local upCardID = mapCardData[name].mapID[2].left
-    local container = getObjectFromGUID("a9f2fd")
+    local container = getObjectFromGUID("7902bb")
     local bounds = obj.getBounds()
     local direction = "left"
 
