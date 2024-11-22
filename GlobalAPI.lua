@@ -1,5 +1,6 @@
 require("ControlPanelAPI")
 require("MapBuilderAPI")
+require("CamPositions")
 
 function onLoad()
     
