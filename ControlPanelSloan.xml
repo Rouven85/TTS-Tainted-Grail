@@ -3,10 +3,10 @@
     childAlignment = "LowerRight"
     >
 </GridLayout> -->
-<Panel width = "400" height = "400" rectAlignment = "LowerRight" offsetXY = "-80 10" allowDragging = "true" returnToOriginalPositionWhenReleased = "false" visibility = "white">
-    <Image image="https://steamusercontent-a.akamaihd.net/ugc/54701168032827018/7472E683167D758DD63F8F45030429616CE90AC3/"/>
-    <TableLayout columnWidths = "60 60 60" padding = "100 0 125 0" cellBackgroundColor = "black" cellSpacing = "5" >
-        <row preferredHeight = "30">
+<Panel width = "470" height = "500" rectAlignment = "LowerRight" offsetXY = "-80 10" allowDragging = "true" returnToOriginalPositionWhenReleased = "false" visibility = "white">
+    <Image image="https://steamusercontent-a.akamaihd.net/ugc/54701168033197782/42067EDF431049DCD9557938353CBC9F1D0DAC8A/"/>
+    <TableLayout columnWidths = "60 60 60" padding = "120 0 170 0" cellBackgroundColor = "black" cellSpacing = "5" >
+        <row preferredHeight = "40">
             <cell>
                <Panel>
                     <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
@@ -26,7 +26,7 @@
                 </Panel> 
                 </cell>
             </row>
-        <row preferredHeight = "50">
+        <row preferredHeight = "60">
             <cell>
                 <Panel>
                     <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "60" color="#FFFFFF80"/> -->
@@ -46,7 +46,7 @@
                 </Panel>
             </cell>
         </row>
-        <row preferredHeight = "30">
+        <row preferredHeight = "40">
             <cell> 
                 <Panel>
                     <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
@@ -67,7 +67,7 @@
             </cell>
         </row>
         
-        <row preferredHeight = "80" >
+        <row preferredHeight = "90" >
             <cell>
                 <Image image="https://steamusercontent-a.akamaihd.net/ugc/54700533762036748/5B1A4E17EB6B8CAA6896C9B3B0287CD2D2D04066/" color="#FFFFFF100"/>
             </cell>

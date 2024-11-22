@@ -3,7 +3,6 @@
     childAlignment = "LowerRight"
     >
 </GridLayout> -->
-<<<<<<< HEAD:ControlPanelDagon.xml
 <Panel width = "400" height = "400" rectAlignment = "LowerRight" offsetXY = "-80 10" allowDragging = "true" returnToOriginalPositionWhenReleased = "false" visibility = "Blue">
     <Image image="https://steamusercontent-a.akamaihd.net/ugc/54701168033008445/4FA7B918C423F5901CA35A1F2AF45516C877CE2C/"/>
     <TableLayout columnWidths = "60 60 60" padding = "100 0 125 0" cellBackgroundColor = "black" cellSpacing = "5" >
@@ -12,108 +11,58 @@
                <Panel>
                     <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
                     <Button id = "energieMinusBtn" onClick = "energieCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
-=======
-<Panel width = "300" height = "340" rectAlignment = "LowerRight" offsetXY = "-80 10" allowDragging = "true" returnToOriginalPositionWhenReleased = "false" visibility = "White">
-
-    <TableLayout columnWidths = "60 60 60" padding = "60 0 78 0">
-        <row preferredHeight = "30">
-            <cell>
-               <Panel>
-                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/>
-                    <Button id = "energieMinusBtn" onClick = "energieCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#dfc390">+</Button>
->>>>>>> parent of 9fa0e02... 241122_Anpassung UI:ControlPanelAPI.xml
                </Panel>             
             </cell>
             <cell>
                 <Panel>
-<<<<<<< HEAD:ControlPanelDagon.xml
                     <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
                     <Button id = "gesundheitPlusBtn" onClick = "healthCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
-=======
-                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/>
-                    <Button id = "gesundheitPlusBtn" onClick = "healthCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#dfc390">+</Button>
->>>>>>> parent of 9fa0e02... 241122_Anpassung UI:ControlPanelAPI.xml
                 </Panel>  
             </cell>
             <cell>
                 <Panel>
-<<<<<<< HEAD:ControlPanelDagon.xml
                     <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
                     <Button id = "furchtPlusBtn" onClick = "furchtCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
-=======
-                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/>
-                    <Button id = "furchtPlusBtn" onClick = "furchtCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#dfc390">+</Button>
->>>>>>> parent of 9fa0e02... 241122_Anpassung UI:ControlPanelAPI.xml
                 </Panel> 
                 </cell>
             </row>
         <row preferredHeight = "50">
             <cell>
                 <Panel>
-<<<<<<< HEAD:ControlPanelDagon.xml
                     <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "60" color="#FFFFFF80"/> -->
                     <text id = "energieValue" fontStyle = "Bold" fontSize = "25" color = "#1a0d00"> 6 </text>
-=======
-                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "60" color="#FFFFFF80"/>
-                    <text id = "energieValue" fontStyle = "Bold" fontSize = "25" color = "#dfc390"> 6 </text>
->>>>>>> parent of 9fa0e02... 241122_Anpassung UI:ControlPanelAPI.xml
                 </Panel>
             </cell>
             <cell>
                 <Panel>
-<<<<<<< HEAD:ControlPanelDagon.xml
                     <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "60" color="#FFFFFF80"/> -->
                     <text id = "healthValue" fontStyle = "Bold" fontSize = "25" color = "#1a0d00"> 8 </text>
-=======
-                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "60" color="#FFFFFF80"/>
-                    <text id = "healthValue" fontStyle = "Bold" fontSize = "25" color = "#dfc390"> 8 </text>
->>>>>>> parent of 9fa0e02... 241122_Anpassung UI:ControlPanelAPI.xml
                 </Panel>
             </cell>
             <cell>
                 <Panel>
-<<<<<<< HEAD:ControlPanelDagon.xml
                     <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "60" color="#FFFFFF80"/>   -->
                     <text id = "furchtValue" fontStyle = "Bold" fontSize = "25" color = "#1a0d00"> 0 </text>
-=======
-                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "60" color="#FFFFFF80"/>  
-                    <text id = "furchtValue" fontStyle = "Bold" fontSize = "25" color = "#dfc390"> 0 </text>
->>>>>>> parent of 9fa0e02... 241122_Anpassung UI:ControlPanelAPI.xml
                 </Panel>
             </cell>
         </row>
         <row preferredHeight = "30">
             <cell> 
                 <Panel>
-<<<<<<< HEAD:ControlPanelDagon.xml
                     <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
                     <Button id = "energiePlusBtn" onClick = "energieCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
-=======
-                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/>
-                    <Button id = "energiePlusBtn" onClick = "energieCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#dfc390">-</Button>
->>>>>>> parent of 9fa0e02... 241122_Anpassung UI:ControlPanelAPI.xml
                 </Panel>
             </cell>
             <cell>
                 <Panel>
-<<<<<<< HEAD:ControlPanelDagon.xml
                     <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
                     <Button id = "gesundheitMinusBtn" onClick = "healthCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
-=======
-                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/>
-                    <Button id = "gesundheitMinusBtn" onClick = "healthCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#dfc390">-</Button>
->>>>>>> parent of 9fa0e02... 241122_Anpassung UI:ControlPanelAPI.xml
                 </Panel>
             </cell>
             <cell>
                 <Panel>
-<<<<<<< HEAD:ControlPanelDagon.xml
                    <!--  <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
                     <Button id = "furchtMinusBtn" onClick = "furchtCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
-=======
-                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/>
-                    <Button id = "furchtMinusBtn" onClick = "furchtCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#dfc390">-</Button>
->>>>>>> parent of 9fa0e02... 241122_Anpassung UI:ControlPanelAPI.xml
                 </Panel>
             </cell>
         </row>
