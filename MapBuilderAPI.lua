@@ -49,16 +49,12 @@ function right_BtnClick(player, value, id)
     local bounds = obj.getBounds()
     local direction = "right"
     
-    if value == "-1" then
-        for _, v in pairs(mapCardData) do
-            if v.CardID == rightCardID then
-                local newMapCard = v.name
-                local card = getCardByName(container, newMapCard, bounds, currentCardPos, direction)
-            end 
-        end
-    elseif value == "-2" then
-        removeMapCard(obj, container)
-    end 
+    for _, v in pairs(mapCardData) do
+        if v.CardID == rightCardID then
+            local newMapCard = v.name
+            local card = getCardByName(container, newMapCard, bounds, currentCardPos, direction)
+        end 
+    end
 end
 
 function down_BtnClick(player, value, id)
@@ -70,15 +66,11 @@ function down_BtnClick(player, value, id)
     local bounds = obj.getBounds()
     local direction = "down"
 
-    if value == "-1" then
-        for _, v in pairs(mapCardData) do
-            if v.CardID == downCardID then
-                local newMapCard = v.name
-                local card = getCardByName(container, newMapCard, bounds, currentCardPos, direction)
-            end 
-        end
-    elseif value == "-2" then
-        removeMapCard(obj, container)
+    for _, v in pairs(mapCardData) do
+        if v.CardID == downCardID then
+            local newMapCard = v.name
+            local card = getCardByName(container, newMapCard, bounds, currentCardPos, direction)
+        end 
     end
 end
 
@@ -90,16 +82,13 @@ function up_BtnClick(player, value, id)
     local container = getObjectFromGUID("7902bb")
     local bounds = obj.getBounds()
     local direction = "up"
-    if value == "-1" then
-        for _, v in pairs(mapCardData) do
-            if v.CardID == upCardID then
-                local newMapCard = v.name
-                local card = getCardByName(container, newMapCard, bounds, currentCardPos, direction)
-            end 
-        end
-    elseif value == "-2" then
-        removeMapCard(obj, container)
-    end 
+
+    for _, v in pairs(mapCardData) do
+        if v.CardID == upCardID then
+            local newMapCard = v.name
+            local card = getCardByName(container, newMapCard, bounds, currentCardPos, direction)
+        end 
+    end
 end
 
 function left_BtnClick(player, value, id)
