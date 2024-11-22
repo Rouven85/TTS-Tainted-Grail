@@ -79,5 +79,13 @@
             </cell>
         </row>
     </TableLayout>
+    <VerticalLayout width = "68" height = "265" offsetXY = "129 -35" spacing = "8" >
+        <Button >5</Button>
+        <Button >5</Button>
+        <Button >5</Button>
+        <Button >5</Button>
+        <Button >5</Button>
+    </VerticalLayout> 
 </Panel>
+      
 
