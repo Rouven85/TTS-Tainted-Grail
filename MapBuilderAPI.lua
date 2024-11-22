@@ -99,17 +99,16 @@ function left_BtnClick(player, value, id)
     local container = getObjectFromGUID("7902bb")
     local bounds = obj.getBounds()
     local direction = "left"
-
-    for _, v in pairs(mapCardData) do
-        if v.CardID == upCardID then
-            log(v.CardID)
-            log(upCardID)
-            local newMapCard = v.name
-            log(newMapCard)
-            log(v.name)
-            local card = getCardByName(container, newMapCard, bounds, currentCardPos, direction)
-        end 
-    end
+    if value == "-1" then
+        for _, v in pairs(mapCardData) do
+            if v.CardID == upCardID then
+                local newMapCard = v.name
+                local card = getCardByName(container, newMapCard, bounds, currentCardPos, direction)
+            end 
+        end
+    elseif value == "-2" then
+        removeMapCard(obj, container)
+    end    
 end
 
 function initLoadedMap()
@@ -166,5 +165,20 @@ function getCardByName(container, newMapCard, bounds, currentCardPos, direction)
             end
             return card
         end
+    end
+end
+
+function removeMapCard (obj, container)
+
+    local objects = getAllObjects()
+    for _,object in ipairs(objects) do
+        if object.hasTag("MapCard") then
+            local name = object.getName()
+            if name == obj.getName() then
+                container.putObject(object)
+                log (name)
+            end
+            
+        end 
     end
 end

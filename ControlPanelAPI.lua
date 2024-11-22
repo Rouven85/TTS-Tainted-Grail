@@ -21,7 +21,7 @@ function energieCounter(player, value, id)
             energieMarker.setPosition(energieMarkerPosition - vector(0,0,offset))
         elseif x >= 1 and x <= 6 then
             x = x + 1
-            UI.setAttributes("energieValue", {color = "#dfc390"})
+            UI.setAttributes("energieValue", {color = "#1a0d00"})
             UI.setValue("energieValue", x)
             energieMarker.setPosition(energieMarkerPosition - vector(0,0,offset))
         elseif x >= 0 and x < 1 then
@@ -43,7 +43,7 @@ function energieCounter(player, value, id)
             
         elseif x <= 7 and x > 2 then
             x = x - 1
-            UI.setAttributes("energieValue", {color = "#dfc390"})
+            UI.setAttributes("energieValue", {color = "#1a0d00"})
             UI.setValue("energieValue", x)
             energieMarker.setPosition(energieMarkerPosition + vector(0,0,offset))
             
@@ -74,7 +74,7 @@ function healthCounter(player, value, id)
         
         if x < 8 and x >= 1 then
             x = x + 1
-            UI.setAttributes("healthValue", {color = "#dfc390"})
+            UI.setAttributes("healthValue", {color = "#1a0d00"})
             UI.setValue("healthValue", x)
             healthMarker.setPosition(healthMarkerPosition - vector(0,0,offset))
         elseif x >= 0 and x < 1 then
@@ -90,7 +90,7 @@ function healthCounter(player, value, id)
 
         if x <= 9 and x >= 2 then
             x = x - 1
-            UI.setAttributes("healthValue", {color = "#dfc390"})
+            UI.setAttributes("healthValue", {color = "#1a0d00"})
             UI.setValue("healthValue", x)
             healthMarker.setPosition(healthMarkerPosition + vector(0,0,offset)) 
             
@@ -121,7 +121,7 @@ function furchtCounter(player, value, id)
         log(x)
         if x >= 0 and x <= 4 then
             x = x + 1
-            UI.setAttributes("furchtValue", {color = "#dfc390"})
+            UI.setAttributes("furchtValue", {color = "#1a0d00"})
             UI.setValue("furchtValue", x)
             furchtMarker.setPosition(furchtMarkerPosition - vector(0,0,offset))
         elseif x > 4 and x < 7 then
@@ -137,7 +137,7 @@ function furchtCounter(player, value, id)
         log(x)
         if x <= 6  and x >= 1 then
             x = x - 1
-            UI.setAttributes("furchtValue", {color = "#dfc390"})
+            UI.setAttributes("furchtValue", {color = "#1a0d00"})
             UI.setValue("furchtValue", x)
             furchtMarker.setPosition(furchtMarkerPosition + vector(0,0,offset)) 
             
