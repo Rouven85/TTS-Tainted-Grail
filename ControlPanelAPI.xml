@@ -3,25 +3,25 @@
     childAlignment = "LowerRight"
     >
 </GridLayout> -->
-<Panel width = "400" height = "400" rectAlignment = "LowerRight" offsetXY = "-80 10" allowDragging = "true" returnToOriginalPositionWhenReleased = "false" visibility = "White">
+<Panel width = "400" height = "400" rectAlignment = "LowerRight" offsetXY = "-80 10" allowDragging = "true" returnToOriginalPositionWhenReleased = "false" >
     <Image image="https://steamusercontent-a.akamaihd.net/ugc/54701168032827018/7472E683167D758DD63F8F45030429616CE90AC3/"/>
-    <TableLayout columnWidths = "60 60 60" padding = "105 0 125 0">
+    <TableLayout columnWidths = "60 60 60" padding = "100 0 125 0" cellBackgroundColor = "black" cellSpacing = "5" >
         <row preferredHeight = "30">
             <cell>
                <Panel>
-                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/>
+                    <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
                     <Button id = "energieMinusBtn" onClick = "energieCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
                </Panel>             
             </cell>
             <cell>
                 <Panel>
-                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/>
+                    <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
                     <Button id = "gesundheitPlusBtn" onClick = "healthCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
                 </Panel>  
             </cell>
             <cell>
                 <Panel>
-                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/>
+                    <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
                     <Button id = "furchtPlusBtn" onClick = "furchtCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
                 </Panel> 
                 </cell>
@@ -29,19 +29,19 @@
         <row preferredHeight = "50">
             <cell>
                 <Panel>
-                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "60" color="#FFFFFF80"/>
+                    <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "60" color="#FFFFFF80"/> -->
                     <text id = "energieValue" fontStyle = "Bold" fontSize = "25" color = "#1a0d00"> 6 </text>
                 </Panel>
             </cell>
             <cell>
                 <Panel>
-                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "60" color="#FFFFFF80"/>
+                    <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "60" color="#FFFFFF80"/> -->
                     <text id = "healthValue" fontStyle = "Bold" fontSize = "25" color = "#1a0d00"> 8 </text>
                 </Panel>
             </cell>
             <cell>
                 <Panel>
-                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "60" color="#FFFFFF80"/>  
+                    <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "60" color="#FFFFFF80"/>   -->
                     <text id = "furchtValue" fontStyle = "Bold" fontSize = "25" color = "#1a0d00"> 0 </text>
                 </Panel>
             </cell>
@@ -49,19 +49,19 @@
         <row preferredHeight = "30">
             <cell> 
                 <Panel>
-                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/>
+                    <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
                     <Button id = "energiePlusBtn" onClick = "energieCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
                 </Panel>
             </cell>
             <cell>
                 <Panel>
-                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/>
+                    <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
                     <Button id = "gesundheitMinusBtn" onClick = "healthCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
                 </Panel>
             </cell>
             <cell>
                 <Panel>
-                    <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/>
+                   <!--  <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
                     <Button id = "furchtMinusBtn" onClick = "furchtCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
                 </Panel>
             </cell>
