@@ -155,3 +155,70 @@ function furchtCounter(player, value, id)
 end
 
 
+function countNahrung(player, value, id)
+    if player.color == "White" then
+        local x = tonumber(UI.getValue("nahrungValue"))
+        if value == "-1" then
+            x = x + 1
+            --xmlTag = string.format([[<Text>%d</Text>"]],x)
+            UI.setValue("nahrungValue", x)
+        elseif value == "-2" and x > 0 then
+            x = x - 1
+            UI.setValue("nahrungValue", x)
+        end
+    end
+end
+
+function countReichtum(player, value, id)
+    if player.color == "White" then
+        local x = tonumber(UI.getValue("reichtumValue"))
+        if value == "-1" then
+            x = x + 1
+            UI.setValue("reichtumValue", x)
+        elseif value == "-2" and x > 0 then
+            x = x - 1
+            UI.setValue("reichtumValue", x)
+        end
+    end
+end
+
+function countAnsehen(player, value, id)
+    if player.color == "White" then
+        local x = tonumber(UI.getValue("ansehenValue"))
+        if value == "-1" then
+            x = x + 1
+            UI.setValue("ansehenValue", x)
+        elseif value == "-2" and x > 0 then
+            x = x - 1
+            UI.setValue("ansehenValue", x)
+        end
+    end
+end
+
+function countErfahrung(player, value, id)
+    if player.color == "White" then
+        local x = tonumber(UI.getValue("erfahrungValue"))
+        if value == "-1" then
+            x = x + 1
+            UI.setValue("erfahrungValue", x)
+        elseif value == "-2" and x > 0 then
+            x = x - 1
+            UI.setValue("erfahrungValue", x)
+        end
+    end
+end
+
+function countMagie(player, value, id)
+    if player.color == "White" then
+        local x = tonumber(UI.getValue("magieValue"))
+        if value == "-1" then
+            x = x + 1
+            UI.setValue("magieValue", x)
+        elseif value == "-2" and x > 0 then
+            x = x - 1
+            UI.setValue("magieValue", x)
+        end
+    end
+end
+
+

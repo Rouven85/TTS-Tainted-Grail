@@ -80,25 +80,25 @@
         </row>
     </TableLayout>
     <VerticalLayout width = "68" height = "265" offsetXY = "129 -35" spacing = "8" >
-        <Button padding = "0 0 2 0 ">
-            <Text alignment = "UpperCenter" fontSize = "12">Nahrung</Text>
-            <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4">5</Text>
+        <Button padding = "0 0 2 0 " id = "sloanNahrung" onClick = "countNahrung" color = "none">
+            <Text alignment = "UpperCenter" fontSize = "12" color = "#fafcd7">Nahrung</Text>
+            <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4" id = "nahrungValue" color = "#fafcd7">0</Text>
         </Button>
-        <Button padding = "0 0 2 0 ">
-            <Text alignment = "UpperCenter" fontSize = "12">Reichtum</Text>
-            <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4">5</Text>
+        <Button padding = "0 0 2 0 " id = "sloanReichtum" onClick = "countReichtum" color = "none">
+            <Text alignment = "UpperCenter" fontSize = "12" color = "#fafcd7">Reichtum</Text>
+            <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4" id = "reichtumValue" color = "#fafcd7">0</Text>
         </Button>
-        <Button padding = "0 0 2 0 "> 
-            <Text alignment = "UpperCenter" fontSize = "12">Ansehen</Text>
-            <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4">5</Text>
+        <Button padding = "0 0 2 0 " id = "sloanAnsehen" onClick = "countAnsehen" color = "none"> 
+            <Text alignment = "UpperCenter" fontSize = "12" color = "#fafcd7">Ansehen</Text>
+            <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4" id = "ansehenValue" color = "#fafcd7">0</Text>
         </Button>
-        <Button padding = "0 0 2 0 ">
-            <Text alignment = "UpperCenter" fontSize = "12">Erfahrung</Text>
-            <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4">5</Text>
+        <Button padding = "0 0 2 0 " id = "sloanErfahrung" onClick = "countErfahrung" color = "none">
+            <Text alignment = "UpperCenter" fontSize = "12" color = "#fafcd7">Erfahrung</Text>
+            <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4" id = "erfahrungValue" color = "#fafcd7">0</Text>
         </Button>
-        <Button padding = "0 0 2 0 ">
-            <Text alignment = "UpperCenter" fontSize = "12">Magie</Text>
-            <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4">5</Text>
+        <Button padding = "0 0 2 0 " id = "sloanMagie" onClick = "countMagie" color = "none">
+            <Text alignment = "UpperCenter" fontSize = "12" color = "#fafcd7">Magie</Text>
+            <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4" id = "magieValue" color = "#fafcd7">0</Text>
         </Button>
     </VerticalLayout> 
 </Panel>
