@@ -3,7 +3,7 @@
     childAlignment = "LowerRight"
     >
 </GridLayout> -->
-<Panel width = "470" height = "500" rectAlignment = "LowerRight" offsetXY = "-80 10" allowDragging = "true" returnToOriginalPositionWhenReleased = "false" visibility = "white">
+<Panel width = "470" height = "500" rectAlignment = "LowerRight" offsetXY = "0 10" allowDragging = "true" returnToOriginalPositionWhenReleased = "false" visibility = "white">
     <Image image="https://steamusercontent-a.akamaihd.net/ugc/54701168033197782/42067EDF431049DCD9557938353CBC9F1D0DAC8A/"/>
     <TableLayout columnWidths = "60 60 60" padding = "120 0 170 0" cellBackgroundColor = "black" cellSpacing = "5" >
         <row preferredHeight = "40">
@@ -102,5 +102,6 @@
         </Button>
     </VerticalLayout> 
 </Panel>
+
       
 

@@ -1,0 +1,8 @@
+<Panel id="examplePanel" anchorMin="0.63 0.95" anchorMax="1 1" offsetMin="0 0" offsetMax="0 0">
+    <HorizontalLayout width="256" height="60" spacing = "4">
+        <Button id = "BtnPlayerBoard" onClick = "camPosition">Board</Button>
+        <Button id = "BtnMap" onClick = "camPosition">Map</Button>
+        <Button id = "BtnStatus" onClick = "camPosition">Status</Button>
+        <Button id = "BtnKampf" onClick = "camPosition">Kampf</Button>
+    </HorizontalLayout>
+</Panel>
