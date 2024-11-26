@@ -7,7 +7,7 @@ require("SetupGame")
 function onLoad()
     --createCamMenu()
     initLoadedMap()
-    
+    sortEncounterDecks()
 end
 
 function onObjectSpawn(object)
