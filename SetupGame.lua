@@ -74,24 +74,11 @@ function sortAndFilterEncounterDecks (...)
     return (encounterList)  
 end
 
---[[ function setupGame()
-    if spawnedSetupCard then
-        local name = spawnedSetupCard.getName()
-        log(name)
-        --[[ for _,setupCard in ipairs(chapterCards) do
-            log(setupCard)
-        end --]]
-
-   -- end
-    
-    --Kapitel1()
---end --]]
-
-function chapter1 ()
+--[[ function kapitel1 ()
     local encounterList = sortAndFilterEncounterDecks(w2,b1, g1, p1)
     placeEncouterDecks(encounterList)
     
-end
+end --]]
 
 function placeEncouterDecks(encounterList)
     --log (encounterList)
@@ -113,10 +100,12 @@ function placeEncouterDecks(encounterList)
         ["Blue Encounter 4"] = "135e69",
         ["Purple Encounter 4"] = "19b21c",
     }
-   
+    local delay = 0
     for k,objGUID in pairs(encounterList) do
+        
         --log (obj)
         for name, areaGUID in pairs(targetAreas) do 
+            
             if k == name then
                 local deck = getObjectFromGUID(objGUID)
                 local area = getObjectFromGUID(areaGUID)
@@ -127,7 +116,7 @@ function placeEncouterDecks(encounterList)
                     position = currentPosition})
                 --deck.setPosition(area.getPosition())
                 --Wait.time (function() cloneDeck.setPosition(currentPosition) end, 0.3)
-                Wait.time(function() cloneDeck.shuffle() end, 0.7, 3)
+                Wait.time(function() cloneDeck.shuffle() end, 0.1, 3)
             end   
         end
     end
@@ -137,10 +126,35 @@ end
 
 
 function setupGame()
-   if spawnedSetupCard then
-    log(spawnedSetupCard)
-    local encounterList = sortAndFilterEncounterDecks(w2,b1, g1, p1)
-    placeEncouterDecks(encounterList)
+    local kapitelList = {
+        ["Kapitel 1"] = function ()
+            local encounterList = sortAndFilterEncounterDecks(w1,b1, g1, p1)
+            placeEncouterDecks(encounterList)
+        end,
+        ["Kapitel 2"] = function () 
+            local encounterList = sortAndFilterEncounterDecks(w1, w2, b1, b2, g1, g2, p1, p2)
+            placeEncouterDecks(encounterList)
+        end, 
+        ["Kapitel 3"] = function ()
+            local encounterList = sortAndFilterEncounterDecks(w1, w2, b1, b2, g1, g2, p1, p2)
+            placeEncouterDecks(encounterList) 
+        end}
+
+    if spawnedSetupCard then
+        local kapitelName = spawnedSetupCard.getName()
+        for key,kapitel in pairs(kapitelList) do
+            
+            if key == kapitelName then
+                kapitelList[kapitelName]()
+                log(key)
+            end
+            
+            
+            
+        end
+        
+       --[[  local encounterList = sortAndFilterEncounterDecks(w2,b1, g1, p1)
+        placeEncouterDecks(encounterList) --]]
    end
 end
     
