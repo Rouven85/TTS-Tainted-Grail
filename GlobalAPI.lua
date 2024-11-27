@@ -4,14 +4,12 @@ require("CamPositions")
 require("SetupGame")
 
 
-function onLoad()
-    --createCamMenu()
+
+function onLoad()    
     initLoadedMap()
-    sortEncounterDecks()
 end
 
 function onObjectSpawn(object)
     initSpawnedMap(object)
     createSetupBtn(object)
-
 end
