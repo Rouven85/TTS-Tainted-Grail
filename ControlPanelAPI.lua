@@ -2,12 +2,37 @@ require ("/Libraries/CharakterParams")
 
 -- AddAndSub Value from energie, Health or furcht --
 function coldCounter (player, value, id)
-    
+    local x = tonumber(UI.getValue("coldValue"))
+    local coldMarker = nil
+    local markerBag = getObjectFromGUID("c3ba04")
+    local sloanBoard = getObjectFromGUID("ad0ab4")
+    local markerToPlace = sloanBoard.getPosition()
+    if id == "coldMinusBtn" then
+        if x == 1 then
+            x = x - 1
+            UI.setValue("coldValue", x)
+        elseif x > 1 then
+            x = x - 1
+            UI.setValue("coldValue", x)
+        end
+    end
+    if id == "coldPlusBtn" then
+        if x == 0 then
+            x = x + 1
+            UI.setValue("coldValue", x)
+            coldMarker = markerBag.takeObject({
+                position = markerToPlace + vector(1, 1, 1)
+           })
+           coldMarker.setName("Unterkühlungsmarker")
+        elseif x == 1 then
+            x = x + 1
+            UI.setValue("coldValue", x)
+        end
+    end
 end
 
 
 function energieCounter(player, value, id)
-    log(charData.Sloan.energie)
     local energieMarker = getObjectFromGUID("04e3d0")
     local energieMarkerPosition = energieMarker.getPosition()
     local sloanBoard = getObjectFromGUID("ad0ab4")
