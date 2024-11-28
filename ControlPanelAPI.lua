@@ -1,6 +1,11 @@
 require ("/Libraries/CharakterParams")
 
 -- AddAndSub Value from energie, Health or furcht --
+function coldCounter (player, value, id)
+    
+end
+
+
 function energieCounter(player, value, id)
     log(charData.Sloan.energie)
     local energieMarker = getObjectFromGUID("04e3d0")
