@@ -1,7 +1,8 @@
-require("ControlPanelAPI")
+--require("ControlPanelAPI")
 require("MapBuilderAPI")
 require("CamPositions")
 require("SetupGame")
+require("CharakterControl")
 
 
 

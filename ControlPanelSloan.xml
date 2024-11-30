@@ -104,7 +104,7 @@
         </Button>
     </VerticalLayout> 
     <Panel padding = "0 40 0 160" >
-        <text id = "coldValue" fontSize = "32" fontStyle = "Bold" color = "#0e316e">3</text>
+        <text id = "coldValue" fontSize = "25" fontStyle = "Bold" color = "#0e316e">0</text>
     </Panel>
 </Panel>
 
