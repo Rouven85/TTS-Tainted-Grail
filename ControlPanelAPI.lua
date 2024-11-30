@@ -24,7 +24,7 @@ function coldCounter (player, value, id)
                 position = markerToPlace + vector(1, 1, 1)
            })
            coldMarker.setName("Unterkühlungsmarker")
-        elseif x == 1 then
+        elseif x >= 1 then
             x = x + 1
             UI.setValue("coldValue", x)
         end
