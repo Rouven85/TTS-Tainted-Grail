@@ -8,6 +8,7 @@ require("CharakterControl")
 
 function onLoad()    
     initLoadedMap()
+    getObjects()
 end
 
 function onObjectSpawn(object)
