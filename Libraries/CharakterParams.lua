@@ -43,17 +43,17 @@
             health = 8,
             furcht = 0,
 
-            aggression = nil,
+            aggression = 0,
             mut = 2,
-            pragmatik = nilf,
-            mitgefuehl = nil,
+            pragmatik = 0,
+            mitgefuehl = 0,
             vorsicht = 2,
             spirit = 1,
             
             food = 1,
             reichtum = 3,
-            ansehen = nil,
-            ep = nil,
+            ansehen = 0,
+            ep = 0,
             magic = 1,
         },
         ["Fyul"] = {

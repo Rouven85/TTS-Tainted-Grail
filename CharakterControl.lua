@@ -43,98 +43,59 @@ function Charakter:getAttributeSnaps()
     local snaps = self.object.getSnapPoints()
     local filteredSnaps = {}
     local snapDictonary ={}
+    local i = 0
     for _,snap in ipairs(snaps) do
         if snap ~= nil and snap.tags[1] then
-                local tagName = snap.tags[1]
-                local position = snap.position
-                filteredSnaps[tagName] = position
-        end
+            local tagName = snap.tags[1]
+            local position = snap.position
+            if tagName == "AgrSnap" and self.aggression ~= 0 then
+                i = i + 1
+                snapDictonary[tagName.. string.format(" %d", i)] = position
+                if i >= self.aggression then
+                    i = 0
+                end
+            elseif tagName == "MutSnap" and self.mut ~= 0 then
+                i = i + 1
+                snapDictonary[tagName.. string.format(" %d", i)] = position
+                if i >= self.mut then
+                    i = 0
+                end
+            elseif tagName == "PragSnap" and self.pragmatik ~= 0 then
+                i = i + 1
+                snapDictonary[tagName.. string.format(" %d", i)] = position
+                if i >= self.pragmatik then
+                    i = 0
+                end
+            elseif tagName == "MitSnap" and self.mitgefuehl ~= 0 then
+                i = i + 1
+                snapDictonary[tagName.. string.format(" %d", i)] = position
+                if i >= self.mitgefuehl then
+                    i = 0
+                end
+            elseif tagName == "VorSnap" and self.vorsicht ~= 0 then
+                i = i + 1
+                snapDictonary[tagName.. string.format(" %d", i)] = position
+                if i >= self.vorsicht then
+                    i = 0
+                end
+            elseif tagName == "SpiritSnap" and self.spirit ~= 0 then
+                i = i + 1
+                snapDictonary[tagName.. string.format(" %d", i)] = position
+                if i >= self.spirit then
+                    i = 0
+                end    
+            end
+        end  
     end
-    return filteredSnaps
+    return snapDictonary
 end
 
 function Charakter:setAttributes(snaps)
     local markerBag = getObjectFromGUID("c3ba04")
-    if self.spirit ~= nil then
-        local spiritMarkers = 0  -- Zähler für gesetzte Marker
-
-        for tagName, position in pairs(snaps) do
-            if tagName == "SpiritSnap" then
-                spiritMarkers = spiritMarkers + 1
-                
-                -- Holen eines Markers aus der Marker-Tasche
-                local marker = markerBag.takeObject({position = self.object.positionToWorld(position), smooth = true})
-
-                -- Überprüfen, ob die Anzahl der Marker erreicht ist
-                if spiritMarkers >= self.spirit then
-                    break
-                end
-            end
-        end
-   
-    end
-   
-   
-  --[[   if self.spirit ~= nil and self.spirit == 1 then
-        for _, snap in ipairs(snaps) do
-            log(snap)
-        end
-    end --]]
+    local spiritMarkers = 0 
+    local mutMarker = 0
+    log(snaps)
 end
-
- --[[   local marker = markerBag.takeObject({
-                    position = self.object.positionToWorld(snap),
-                    smooth = false,        -- Verhindert das Herunterfallen
-                    snap_to = true         -- Aktiviert das Snapping
-                    })
-                log("Hallo") --]]
-
-    --log (filteredSnaps)
-       --[[  if self.spirit ~= nil and self.spirit ~= #filteredSnaps then
-            log(snap)
-        end  --]]
-        
-            --table.insert(filteredSnaps, snap)
-       
-        --[[ if snap.tags[1] == "SpiritSnap" then
-            table.insert(filteredSnaps, snap)
-            
-            --log(#filteredSnaps)
-            if #filteredSnaps < self.spirit and self.spirit ~= nil then
-                --log(self.spirit)
-                local marker = markerBag.takeObject({
-                    position = self.object.positionToWorld(snap.position),
-                    smooth = false,        -- Verhindert das Herunterfallen
-                    snap_to = true         -- Aktiviert das Snapping
-                })
-            end
-        end --]]
-    
-    --log(filterdSnaps)
-    --local yOffset = filteredSnaps[2].position.z - filteredSnaps[1].position.z
-    
-    --markerBag.takeObject(self.position + vector(0, 2, 0))
-    
-
-   
-    
-    --local 
-    --localPosition = object.positionToLocal(worldPosition)
-    --local localPosition = self.positionToWorld(vector(self.bound.size.x, 0, 3))
-    --pos = self.positionToWorld(self.bound.center)
-    --log(self.positionToWorld(self.bound.size))
-    --log(self.bound)
- --[[    local agroMarker = markerBag.takeObject({
-        callback_function = function (spawnedObject)
-            local agroMarker = markerBag.takeObject({
-                position = self.position + vector(-3.5, 0.5, 0.5),
-                smooth = false,        -- Verhindert das Herunterfallen
-                snap_to = true         -- Aktiviert das Snapping
-            })
-            log(nemarkerPosition)
-        end
-    }) --]]
-    --self.position 
 
 -- Methode der Klasse
 function Charakter:print()
