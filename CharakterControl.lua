@@ -95,6 +95,11 @@ function Charakter:setAttributes(snaps)
     local spiritMarkers = 0 
     local mutMarker = 0
     log(snaps)
+    for _, attribute in pairs(snaps) do
+        local position = self.object.positionToWorld(attribute)
+        log(attribute)
+        markerBag.takeObject({position = position})
+    end
 end
 
 -- Methode der Klasse
