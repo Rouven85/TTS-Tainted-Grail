@@ -97,7 +97,6 @@ function Charakter:setAttributes(snaps)
     log(snaps)
     for _, attribute in pairs(snaps) do
         local position = self.object.positionToWorld(attribute)
-        log(attribute)
         markerBag.takeObject({position = position})
     end
 end
@@ -115,9 +114,12 @@ function getObjects()
             
             if object.getName() == "Dagan" then
                 dagan = Charakter.new(getObjectFromGUID(object.guid))
-
+                local snaps = dagan:getAttributeSnaps()
+                dagan:setAttributes(snaps)
             elseif object.getName() == "Mabd" then
                 mabd = Charakter.new(getObjectFromGUID(object.guid))
+                local snaps = mabd:getAttributeSnaps()
+                mabd:setAttributes(snaps)
             
             elseif object.getName() == "Sloan" then
                 sloan = Charakter.new(getObjectFromGUID(object.guid))
@@ -125,7 +127,9 @@ function getObjects()
                 sloan:setAttributes(snaps)
                 --log(attributes)
             elseif object.getName() == "Fyul" then
-                fyul = Charakter.new(getObjectFromGUID(object.guid)) 
+                fyul = Charakter.new(getObjectFromGUID(object.guid))
+                local snaps = fyul:getAttributeSnaps()
+                fyul:setAttributes(snaps)
             end
         end
     end

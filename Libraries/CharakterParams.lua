@@ -15,8 +15,8 @@
             food = 2,
             reichtum = 3,
             ansehen = 1,
-            ep = nil,
-            magic = nil,
+            ep = 0,
+            magic = 0,
     
         },
         ["Mabd"] = {
@@ -32,9 +32,9 @@
             spirit = 1,
             
             food = 1,
-            reichtum = nil,
+            reichtum = 0,
             ansehen = 3,
-            ep = nil,
+            ep = 0,
             magic = 1,
     
         },
@@ -61,17 +61,17 @@
             health = 7,
             furcht = 0,
 
-            aggression = nil,
+            aggression = 0,
             mut = 1,
             pragmatik = 1,
             mitgefuehl = 1,
             vorsicht = 2,
-            spirit = nil,
+            spirit = 0,
             
             food = 2,
-            reichtum = nil,
-            ansehen = nil,
-            ep = nil,
+            reichtum = 0,
+            ansehen = 0,
+            ep = 0,
             magic = 2,
         },
         
