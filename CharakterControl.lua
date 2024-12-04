@@ -45,6 +45,8 @@ function Charakter:setStartResources ()
     UI.setValue("ansehenValue", tostring(self.ansehen))
     UI.setValue("erfahrungValue", tostring(self.ep))
     UI.setValue("magieValue", tostring(self.magic))
+
+    
 end
 
 function Charakter:getAttributeSnaps()
@@ -91,7 +93,19 @@ function Charakter:getAttributeSnaps()
                 snapDictonary[tagName.. string.format(" %d", i)] = position
                 if i >= self.spirit then
                     i = 0
-                end    
+                end
+            elseif tagName == "FurchtSnap" then
+                i = i + 1
+                snapDictonary[tagName.. string.format(" %d", i)] = position
+                if i >= 1 then
+                    i = 0
+                end
+            elseif tagName == "EnergySnap" then
+                i = i + 1
+                snapDictonary[tagName.. string.format(" %d", i)] = position
+                if i >= 1 then
+                    i = 0
+                end
             end
         end  
     end
@@ -102,7 +116,6 @@ function Charakter:setAttributes(snaps)
     local markerBag = getObjectFromGUID("c3ba04")
     local spiritMarkers = 0 
     local mutMarker = 0
-    log(snaps)
     for _, attribute in pairs(snaps) do
         local position = self.object.positionToWorld(attribute)
         markerBag.takeObject({position = position})
@@ -131,10 +144,55 @@ function callCountMethod(player, value, id)
 end
 
 function Charakter:energieCount (player, value, id)
-    local markerBag = getObjectFromGUID("c3ba04")
-    
-
-    log("Hallo")
+    local obj = self.object
+    --local markerBag = getObjectFromGUID("c3ba04")
+    --local energieMarker = getObjectFromGUID("04e3d0")
+    --local energieMarkerPosition = energieMarker.getPosition()
+   -- local sloanBoard = getObjectFromGUID("ad0ab4")
+    --local snapPoints = obj.getSnapPoints()
+   
+    --[[ local point1 = obj.positionToWorld(snapPoints[28].position)
+    local point2 = obj.positionToWorld(snapPoints[29].position)
+    local offset = point2[3] - point1[3] -- Distance between SnapPoints
+    local x = tonumber(UI.getValue("energieValue"))
+    if id == "energieMinusBtn" then
+        if x >= 6 and x < 9 then
+            x = x + 1
+            UI.setAttributes("energieValue", {color = "#2c583b"})
+            UI.setValue("energieValue", x)
+            energieMarker.setPosition(energieMarkerPosition - vector(0,0,offset))
+        elseif x >= 1 and x <= 6 then
+            x = x + 1
+            UI.setAttributes("energieValue", {color = "#1a0d00"})
+            UI.setValue("energieValue", x)
+            energieMarker.setPosition(energieMarkerPosition - vector(0,0,offset))
+        elseif x >= 0 and x < 1 then
+            x = x + 1
+            UI.setAttributes("energieValue", {color = "#700000"})
+            UI.setValue("energieValue", x)
+            energieMarker.setPosition(energieMarkerPosition - vector(0,0,offset))
+            log(x)
+        end
+    end --]]
+   
+   --[[  if id == "energiePlusBtn" then
+        if x <= 9 and x > 7 then
+            x = x - 1
+            UI.setAttributes("energieValue", {color = "#2c583b"})
+            UI.setValue("energieValue", x)
+            energieMarker.setPosition(energieMarkerPosition + vector(0,0,offset)) 
+        elseif x <= 7 and x > 2 then
+            x = x - 1
+            UI.setAttributes("energieValue", {color = "#1a0d00"})
+            UI.setValue("energieValue", x)
+            energieMarker.setPosition(energieMarkerPosition + vector(0,0,offset))  
+        elseif x <= 2 and x > 0 then
+            x = x - 1
+            UI.setAttributes("energieValue", {color = "#700000"})
+            UI.setValue("energieValue", x)
+            energieMarker.setPosition(energieMarkerPosition + vector(0,0,offset)) 
+        end
+    end  --]]
 end
 
 function Charakter:coldCount (player, value, id)
@@ -150,23 +208,59 @@ function Charakter:furchtCount (player, value, id)
 end
 
 function Charakter:nahrung (player, value, id)
-    log("Hallo")
+    local x = tonumber(UI.getValue("nahrungValue"))
+        if value == "-1" then
+            x = x + 1
+            --xmlTag = string.format([[<Text>%d</Text>"]],x)
+            UI.setValue("nahrungValue", x)
+        elseif value == "-2" and x > 0 then
+            x = x - 1
+            UI.setValue("nahrungValue", x)
+        end
 end
 
 function Charakter:reichtum (player, value, id)
-    log("Hallo")
+    local x = tonumber(UI.getValue("reichtumValue"))
+    if value == "-1" then
+        x = x + 1
+        UI.setValue("reichtumValue", x)
+    elseif value == "-2" and x > 0 then
+        x = x - 1
+        UI.setValue("reichtumValue", x)
+    end
 end
 
 function Charakter:ansehen (player, value, id)
-    log("Hallo")
+    local x = tonumber(UI.getValue("ansehenValue"))
+    if value == "-1" then
+        x = x + 1
+        UI.setValue("ansehenValue", x)
+    elseif value == "-2" and x > 0 then
+        x = x - 1
+        UI.setValue("ansehenValue", x)
+    end
 end
 
 function Charakter:erfahrung (player, value, id)
-    log("Hallo")
+    local x = tonumber(UI.getValue("erfahrungValue"))
+        if value == "-1" then
+            x = x + 1
+            UI.setValue("erfahrungValue", x)
+        elseif value == "-2" and x > 0 then
+            x = x - 1
+            UI.setValue("erfahrungValue", x)
+        end
 end
 
 function Charakter:magic (player, value, id)
-    log("Hallo")
+    local x = tonumber(UI.getValue("magieValue"))
+    if value == "-1" then
+        x = x + 1
+        UI.setValue("magieValue", x)
+    elseif value == "-2" and x > 0 then
+        x = x - 1
+        UI.setValue("magieValue", x)
+    end
 end
 
 
