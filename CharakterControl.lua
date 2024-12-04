@@ -39,6 +39,14 @@ function Charakter.new(object)
     return self
 end
 
+function Charakter:setStartResources ()
+    UI.setValue("nahrungValue", tostring(self.food))
+    UI.setValue("reichtumValue", tostring(self.reichtum))
+    UI.setValue("ansehenValue", tostring(self.ansehen))
+    UI.setValue("erfahrungValue", tostring(self.ep))
+    UI.setValue("magieValue", tostring(self.magic))
+end
+
 function Charakter:getAttributeSnaps()
     local snaps = self.object.getSnapPoints()
     local filteredSnaps = {}
@@ -100,6 +108,70 @@ function Charakter:setAttributes(snaps)
         markerBag.takeObject({position = position})
     end
 end
+function callCountMethod(player, value, id)
+    if id == "energieMinusBtn" or id == "energiePlusBtn" then
+        Charakter:energieCount (player, value, id)
+    elseif id == "coldMinusBtn" or id == "coldPlusBtn" then
+        Charakter:coldCount (player, value, id)
+    elseif id == "gesundheitPlusBtn" or id == "gesundheitMinusBtn" then
+        Charakter:healthCount (player, value, id)
+    elseif id == "furchtPlusBtn" or id == "furchtMinusBtn" then
+        Charakter:furchtCount (player, value, id)
+    elseif id == "sloanNahrung" then
+        Charakter:nahrung (player, value, id)
+    elseif id == "sloanReichtum" then
+        Charakter:reichtum (player, value, id)
+    elseif id == "sloanAnsehen" then
+        Charakter:ansehen (player, value, id)
+    elseif id == "sloanErfahrung" then
+        Charakter:erfahrung (player, value, id)
+    elseif id == "sloanMagie" then
+        Charakter:magic (player, value, id)
+    end 
+end
+
+function Charakter:energieCount (player, value, id)
+    local markerBag = getObjectFromGUID("c3ba04")
+    
+
+    log("Hallo")
+end
+
+function Charakter:coldCount (player, value, id)
+    log("Hallo")
+end
+
+function Charakter:healthCount (player, value, id)
+    log("Hallo")
+end
+
+function Charakter:furchtCount (player, value, id)
+    log("Hallo")
+end
+
+function Charakter:nahrung (player, value, id)
+    log("Hallo")
+end
+
+function Charakter:reichtum (player, value, id)
+    log("Hallo")
+end
+
+function Charakter:ansehen (player, value, id)
+    log("Hallo")
+end
+
+function Charakter:erfahrung (player, value, id)
+    log("Hallo")
+end
+
+function Charakter:magic (player, value, id)
+    log("Hallo")
+end
+
+
+
+
 
 -- Methode der Klasse
 function Charakter:print()
@@ -125,6 +197,7 @@ function getObjects()
                 sloan = Charakter.new(getObjectFromGUID(object.guid))
                 local snaps = sloan:getAttributeSnaps()
                 sloan:setAttributes(snaps)
+                sloan:setStartResources ()
                 --log(attributes)
             elseif object.getName() == "Fyul" then
                 fyul = Charakter.new(getObjectFromGUID(object.guid))
@@ -135,11 +208,4 @@ function getObjects()
     end
 end
 
-
-
--- Objekt abrufen und initialisieren
---[[ local object = getObjectFromGUID("a34fdc")
-if not object then
-    error("Objekt mit dieser GUID nicht gefunden!")
-end --]]
 
