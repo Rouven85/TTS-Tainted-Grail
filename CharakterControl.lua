@@ -34,8 +34,6 @@ function Charakter.new(object)
     self.ep = charData[self.name].ep
     self.magic = charData[self.name].magic
 
-
-
     return self
 end
 
@@ -157,14 +155,15 @@ function callCountMethod(player, value, id)
 end
 
 function Charakter:energieCount (player, value, id)
-    local obj = self.object
+    log (self.name)
+
     --local markerBag = getObjectFromGUID("c3ba04")
     --local energieMarker = getObjectFromGUID("04e3d0")
     --local energieMarkerPosition = energieMarker.getPosition()
    -- local sloanBoard = getObjectFromGUID("ad0ab4")
     --local snapPoints = obj.getSnapPoints()
    
-    local point1 = obj.positionToWorld(snapPoints[28].position)
+--[[     local point1 = obj.positionToWorld(snapPoints[28].position)
     local point2 = obj.positionToWorld(snapPoints[29].position)
     local offset = point2[3] - point1[3] -- Distance between SnapPoints
     local x = tonumber(UI.getValue("energieValue"))
@@ -205,7 +204,7 @@ function Charakter:energieCount (player, value, id)
             UI.setValue("energieValue", x)
             energieMarker.setPosition(energieMarkerPosition + vector(0,0,offset)) 
         end
-    end 
+    end  --]]
 end
 
 function Charakter:coldCount (player, value, id)
