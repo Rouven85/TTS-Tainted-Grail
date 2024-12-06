@@ -51,9 +51,9 @@ end
 
 function Charakter:getAttributeSnaps()
     local snaps = self.object.getSnapPoints()
-    local filteredSnaps = {}
     local snapDictonary ={}
     local i = 0
+    local name = ""
     for _,snap in ipairs(snaps) do
         if snap ~= nil and snap.tags[1] then
             local tagName = snap.tags[1]
@@ -105,22 +105,23 @@ function Charakter:getAttributeSnaps()
                 snapDictonary[tagName.. string.format(" %d", i)] = position
                 if i >= 1 then
                     i = 0
+                    name = "Energie" 
                 end
             end
         end  
     end
-    return snapDictonary
+    log(snapDictonary)
+    return snapDictonary, name
 end
 
-function Charakter:setAttributes(snaps)
-    local markerBag = getObjectFromGUID("c3ba04")
-    local spiritMarkers = 0 
-    local mutMarker = 0
-    for _, attribute in pairs(snaps) do
-        local position = self.object.positionToWorld(attribute)
-        markerBag.takeObject({position = position})
+function Charakter:setAttributes(snaps, name)
+    local url = "https://steamusercontent-a.akamaihd.net/ugc/54702617428416061/F24A4BE24C0FDC9234884DCF180170EBA9693F8B/"
+    for _, posVector in pairs(snaps) do
+        local position = self.object.positionToWorld(posVector)
+        spawnObjectFromFile(url ,position, name)
     end
 end
+
 function callCountMethod(player, value, id)
     if id == "energieMinusBtn" or id == "energiePlusBtn" then
         Charakter:energieCount (player, value, id)
@@ -151,7 +152,7 @@ function Charakter:energieCount (player, value, id)
    -- local sloanBoard = getObjectFromGUID("ad0ab4")
     --local snapPoints = obj.getSnapPoints()
    
-    --[[ local point1 = obj.positionToWorld(snapPoints[28].position)
+    local point1 = obj.positionToWorld(snapPoints[28].position)
     local point2 = obj.positionToWorld(snapPoints[29].position)
     local offset = point2[3] - point1[3] -- Distance between SnapPoints
     local x = tonumber(UI.getValue("energieValue"))
@@ -173,9 +174,9 @@ function Charakter:energieCount (player, value, id)
             energieMarker.setPosition(energieMarkerPosition - vector(0,0,offset))
             log(x)
         end
-    end --]]
+    end
    
-   --[[  if id == "energiePlusBtn" then
+    if id == "energiePlusBtn" then
         if x <= 9 and x > 7 then
             x = x - 1
             UI.setAttributes("energieValue", {color = "#2c583b"})
@@ -192,7 +193,7 @@ function Charakter:energieCount (player, value, id)
             UI.setValue("energieValue", x)
             energieMarker.setPosition(energieMarkerPosition + vector(0,0,offset)) 
         end
-    end  --]]
+    end 
 end
 
 function Charakter:coldCount (player, value, id)
@@ -289,8 +290,8 @@ function getObjects()
             
             elseif object.getName() == "Sloan" then
                 sloan = Charakter.new(getObjectFromGUID(object.guid))
-                local snaps = sloan:getAttributeSnaps()
-                sloan:setAttributes(snaps)
+                local snaps, name = sloan:getAttributeSnaps()
+                sloan:setAttributes(snaps, name)
                 sloan:setStartResources ()
                 --log(attributes)
             elseif object.getName() == "Fyul" then
