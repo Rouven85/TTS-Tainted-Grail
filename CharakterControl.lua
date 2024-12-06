@@ -53,72 +53,84 @@ function Charakter:getAttributeSnaps()
     local snaps = self.object.getSnapPoints()
     local snapDictonary ={}
     local i = 0
-    local name = ""
-    for _,snap in ipairs(snaps) do
+    local name = {}
+    for k,snap in ipairs(snaps) do
         if snap ~= nil and snap.tags[1] then
             local tagName = snap.tags[1]
             local position = snap.position
             if tagName == "AgrSnap" and self.aggression ~= 0 then
                 i = i + 1
                 snapDictonary[tagName.. string.format(" %d", i)] = position
+                name[tagName.. string.format(" %d", i)] = "Aggression"
                 if i >= self.aggression then
                     i = 0
                 end
             elseif tagName == "MutSnap" and self.mut ~= 0 then
                 i = i + 1
                 snapDictonary[tagName.. string.format(" %d", i)] = position
+                name[tagName.. string.format(" %d", i)] = "Mut"
                 if i >= self.mut then
                     i = 0
                 end
             elseif tagName == "PragSnap" and self.pragmatik ~= 0 then
                 i = i + 1
                 snapDictonary[tagName.. string.format(" %d", i)] = position
+                name[tagName.. string.format(" %d", i)] = "Pragmatik"
                 if i >= self.pragmatik then
                     i = 0
                 end
             elseif tagName == "MitSnap" and self.mitgefuehl ~= 0 then
                 i = i + 1
                 snapDictonary[tagName.. string.format(" %d", i)] = position
+                name[tagName.. string.format(" %d", i)] = "Mitgefühl"
                 if i >= self.mitgefuehl then
                     i = 0
                 end
             elseif tagName == "VorSnap" and self.vorsicht ~= 0 then
                 i = i + 1
                 snapDictonary[tagName.. string.format(" %d", i)] = position
+                name[tagName.. string.format(" %d", i)] = "Vorsicht"
                 if i >= self.vorsicht then
                     i = 0
                 end
             elseif tagName == "SpiritSnap" and self.spirit ~= 0 then
                 i = i + 1
                 snapDictonary[tagName.. string.format(" %d", i)] = position
+                name[tagName.. string.format(" %d", i)] = "Spiritualität"
                 if i >= self.spirit then
                     i = 0
                 end
             elseif tagName == "FurchtSnap" then
                 i = i + 1
                 snapDictonary[tagName.. string.format(" %d", i)] = position
+                name[tagName.. string.format(" %d", i)] = "Furcht"
                 if i >= 1 then
                     i = 0
+                    name[tagName] = "Furcht"
                 end
             elseif tagName == "EnergySnap" then
                 i = i + 1
                 snapDictonary[tagName.. string.format(" %d", i)] = position
+                name[tagName.. string.format(" %d", i)] = "Energie"
                 if i >= 1 then
-                    i = 0
-                    name = "Energie" 
+                    i = 0    
                 end
             end
         end  
     end
-    log(snapDictonary)
+   
     return snapDictonary, name
 end
 
 function Charakter:setAttributes(snaps, name)
+
     local url = "https://steamusercontent-a.akamaihd.net/ugc/54702617428416061/F24A4BE24C0FDC9234884DCF180170EBA9693F8B/"
-    for _, posVector in pairs(snaps) do
-        local position = self.object.positionToWorld(posVector)
-        spawnObjectFromFile(url ,position, name)
+    for key1, posVector in pairs(snaps) do
+        if name ~= nil and name[key1] ~= nil then
+            local position = self.object.positionToWorld(posVector)
+            objectName = name[key1]
+            spawnObjectFromFile(url ,position, objectName)
+        end
     end
 end
 
@@ -262,15 +274,6 @@ function Charakter:magic (player, value, id)
         x = x - 1
         UI.setValue("magieValue", x)
     end
-end
-
-
-
-
-
--- Methode der Klasse
-function Charakter:print()
-    log("Hallo, ich bin " .. self.name)
 end
 
 

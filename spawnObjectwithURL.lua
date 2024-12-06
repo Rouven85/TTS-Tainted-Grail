@@ -1,4 +1,4 @@
-function spawnObjectFromFile(url ,position, name)
+function spawnObjectFromFile(url ,position, objectName)
     -- JSON-Datei herunterladen
     WebRequest.get(url, function(response)
         if response.is_error then
@@ -10,7 +10,7 @@ function spawnObjectFromFile(url ,position, name)
                 json = objectJSON,
                 position = position,
                 callback_function = function(obj)
-                    obj.setName(name)
+                    obj.setName(objectName)
                 end
             })
         end
