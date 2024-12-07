@@ -40,8 +40,13 @@
         },
         ["Sloan"] = {
             energie = 6,
+            energieBonus = 3,
+            erschoepft = 1,
             health = 8,
+            death = 0,
             furcht = 0,
+            wahnsinn = 6,
+            wahnsinnMax = 7,
 
             aggression = 0,
             mut = 2,
