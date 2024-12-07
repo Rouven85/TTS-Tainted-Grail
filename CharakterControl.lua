@@ -15,7 +15,7 @@ function Charakter.new(object)
     self.name = object.getName() -- Korrigierter Variablenname
     self.position = object.getPosition()
     self.bound = object.getBounds()
-    self.guid = object.getGUID()
+    self.guid = object.getGUID() 
     
     self.energie = charData[self.name].energie
     self.health = charData[self.name].health
@@ -113,6 +113,13 @@ function Charakter:getAttributeSnaps()
                 if i >= 1 then
                     i = 0    
                 end
+            elseif tagName == "PseudoSnap" then
+                i = i + 1
+                snapDictonary[tagName.. string.format(" %d", i)] = position
+                name[tagName.. string.format(" %d", i)] = "Pseudo"
+                if i >= 1 then
+                    i = 0    
+                end
             end
         end  
     end
@@ -121,90 +128,117 @@ function Charakter:getAttributeSnaps()
 end
 
 function Charakter:setAttributes(snaps, name)
-
+    local tblForDistance = {}
+    local options = {}
     local url = "https://steamusercontent-a.akamaihd.net/ugc/54702617428416061/F24A4BE24C0FDC9234884DCF180170EBA9693F8B/"
     for key1, posVector in pairs(snaps) do
         if name ~= nil and name[key1] ~= nil then
+            log(name[key1])
             local position = self.object.positionToWorld(posVector)
             objectName = name[key1]
             spawnObjectFromFile(url ,position, objectName)
-        end
+            if name[key1] == "Pseudo" or name[key1] == "Furcht" then
+                table.insert(tblForDistance, posVector)  
+                
+            end
+        end   
     end
+    if tblForDistance[1] ~= nil or tblForDistance[2] ~= nil then
+        local distance = Vector.distance(tblForDistance[1],tblForDistance[2])
+        callCountMethod(player, value, id)  
+    end   
 end
 
+
+
 function callCountMethod(player, value, id)
-    if id == "energieMinusBtn" or id == "energiePlusBtn" then
-        Charakter:energieCount (player, value, id)
-    elseif id == "coldMinusBtn" or id == "coldPlusBtn" then
-        Charakter:coldCount (player, value, id)
-    elseif id == "gesundheitPlusBtn" or id == "gesundheitMinusBtn" then
-        Charakter:healthCount (player, value, id)
-    elseif id == "furchtPlusBtn" or id == "furchtMinusBtn" then
-        Charakter:furchtCount (player, value, id)
-    elseif id == "sloanNahrung" then
-        Charakter:nahrung (player, value, id)
-    elseif id == "sloanReichtum" then
-        Charakter:reichtum (player, value, id)
-    elseif id == "sloanAnsehen" then
-        Charakter:ansehen (player, value, id)
-    elseif id == "sloanErfahrung" then
-        Charakter:erfahrung (player, value, id)
-    elseif id == "sloanMagie" then
-        Charakter:magic (player, value, id)
-    end 
+    local distance = distance
+    local objects = getAllObjects()
+    for _,object in ipairs(objects) do
+        if id == "energieMinusBtn" or id == "energiePlusBtn" then
+            if object.hasTag("PlayerBoard") then
+                if object.getName() == "Sloan" then
+                    sloan = Charakter.new(getObjectFromGUID(object.guid))
+                    sloan:energieCount (player, value, id)
+                end
+            end    
+        elseif id == "coldMinusBtn" or id == "coldPlusBtn" then
+            Charakter:coldCount (player, value, id)
+        elseif id == "gesundheitPlusBtn" or id == "gesundheitMinusBtn" then
+            Charakter:healthCount (player, value, id)
+        elseif id == "furchtPlusBtn" or id == "furchtMinusBtn" then
+            if object.hasTag("PlayerBoard") then
+                if object.getName() == "Sloan" then
+                    sloan = Charakter.new(getObjectFromGUID(object.guid))
+                    sloan:furchtCount (player, value, id)
+                end
+            end 
+        elseif id == "sloanNahrung" then
+            Charakter:nahrung (player, value, id)
+        elseif id == "sloanReichtum" then
+            Charakter:reichtum (player, value, id)
+        elseif id == "sloanAnsehen" then
+            Charakter:ansehen (player, value, id)
+        elseif id == "sloanErfahrung" then
+            Charakter:erfahrung (player, value, id)
+        elseif id == "sloanMagie" then
+            Charakter:magic (player, value, id)
+        end 
+    end
 end
 
 function Charakter:energieCount (player, value, id)
-    log (self.name)
-
-    --local markerBag = getObjectFromGUID("c3ba04")
-    --local energieMarker = getObjectFromGUID("04e3d0")
-    --local energieMarkerPosition = energieMarker.getPosition()
-   -- local sloanBoard = getObjectFromGUID("ad0ab4")
-    --local snapPoints = obj.getSnapPoints()
-   
---[[     local point1 = obj.positionToWorld(snapPoints[28].position)
-    local point2 = obj.positionToWorld(snapPoints[29].position)
-    local offset = point2[3] - point1[3] -- Distance between SnapPoints
     local x = tonumber(UI.getValue("energieValue"))
-    if id == "energieMinusBtn" then
-        if x >= 6 and x < 9 then
-            x = x + 1
-            UI.setAttributes("energieValue", {color = "#2c583b"})
-            UI.setValue("energieValue", x)
-            energieMarker.setPosition(energieMarkerPosition - vector(0,0,offset))
-        elseif x >= 1 and x <= 6 then
-            x = x + 1
-            UI.setAttributes("energieValue", {color = "#1a0d00"})
-            UI.setValue("energieValue", x)
-            energieMarker.setPosition(energieMarkerPosition - vector(0,0,offset))
-        elseif x >= 0 and x < 1 then
-            x = x + 1
-            UI.setAttributes("energieValue", {color = "#700000"})
-            UI.setValue("energieValue", x)
-            energieMarker.setPosition(energieMarkerPosition - vector(0,0,offset))
-            log(x)
+    local allObjects = getAllObjects()
+    local charakterBoard = self.object
+    local boardBounds = charakterBoard.getBounds()
+    for _, obj in ipairs(allObjects) do
+        local objPos = obj.getPosition()
+        if math.abs(objPos.x - charakterBoard.getPosition().x) < boardBounds.size.x / 2 and
+           math.abs(objPos.z - charakterBoard.getPosition().z) < boardBounds.size.z / 2 then
+            if obj.getName() == "Energie" then
+                local markerPos = obj.getPosition()
+                local markerBound = obj.getBounds()
+                local markerZValue = markerBound.size.z 
+                if id == "energieMinusBtn" then
+                    if x >= 6 and x < 9 then
+                        x = x + 1
+                        UI.setAttributes("energieValue", {color = "#2c583b"})
+                        UI.setValue("energieValue", x)
+                        obj.setPosition(markerPos  + Vector(0,0,markerBound.size.z) + Vector(0, 0, 0.1615))
+                    elseif x >= 1 and x <= 6 then
+                        x = x + 1
+                        UI.setAttributes("energieValue", {color = "#1a0d00"})
+                        UI.setValue("energieValue", x)
+                        obj.setPosition(markerPos  + Vector(0,0,markerBound.size.z) + Vector(0, 0, 0.1615))
+                    elseif x >= 0 and x < 1 then
+                        x = x + 1
+                        UI.setAttributes("energieValue", {color = "#700000"})
+                        UI.setValue("energieValue", x)
+                        obj.setPosition(markerPos  + Vector(0,0,markerBound.size.z) + Vector(0, 0, 0.1615))
+                    end
+                end
+                if id == "energiePlusBtn" then
+                    if x <= 9 and x > 7 then
+                        x = x - 1
+                        UI.setAttributes("energieValue", {color = "#2c583b"})
+                        UI.setValue("energieValue", x)
+                        obj.setPosition(markerPos  - Vector(0,0,markerBound.size.z) - Vector(0, 0, 0.1615)) 
+                    elseif x <= 7 and x > 2 then
+                        x = x - 1
+                        UI.setAttributes("energieValue", {color = "#1a0d00"})
+                        UI.setValue("energieValue", x)
+                        obj.setPosition(markerPos  - Vector(0,0,markerBound.size.z) - Vector(0, 0, 0.1615))  
+                    elseif x <= 2 and x > 0 then
+                        x = x - 1
+                        UI.setAttributes("energieValue", {color = "#700000"})
+                        UI.setValue("energieValue", x)
+                        obj.setPosition(markerPos  - Vector(0,0,markerBound.size.z) - Vector(0, 0, 0.1615))
+                    end
+                end 
+            end
         end
     end
-   
-    if id == "energiePlusBtn" then
-        if x <= 9 and x > 7 then
-            x = x - 1
-            UI.setAttributes("energieValue", {color = "#2c583b"})
-            UI.setValue("energieValue", x)
-            energieMarker.setPosition(energieMarkerPosition + vector(0,0,offset)) 
-        elseif x <= 7 and x > 2 then
-            x = x - 1
-            UI.setAttributes("energieValue", {color = "#1a0d00"})
-            UI.setValue("energieValue", x)
-            energieMarker.setPosition(energieMarkerPosition + vector(0,0,offset))  
-        elseif x <= 2 and x > 0 then
-            x = x - 1
-            UI.setAttributes("energieValue", {color = "#700000"})
-            UI.setValue("energieValue", x)
-            energieMarker.setPosition(energieMarkerPosition + vector(0,0,offset)) 
-        end
-    end  --]]
 end
 
 function Charakter:coldCount (player, value, id)
@@ -216,7 +250,57 @@ function Charakter:healthCount (player, value, id)
 end
 
 function Charakter:furchtCount (player, value, id)
-    log("Hallo")
+    local x = tonumber(UI.getValue("furchtValue"))
+    local allObjects = getAllObjects()
+    local charakterBoard = self.object
+    local boardBounds = charakterBoard.getBounds()
+    for _, obj in ipairs(allObjects) do
+        local objPos = obj.getPosition()
+        if math.abs(objPos.x - charakterBoard.getPosition().x) < boardBounds.size.x / 2 and
+           math.abs(objPos.z - charakterBoard.getPosition().z) < boardBounds.size.z / 2 then
+            if obj.getName() == "Furcht" then
+                local markerPos = obj.getPosition()
+                local markerBound = obj.getBounds()
+                local markerZValue = markerBound.size.z 
+                if id == "furchtMinusBtn" then
+                    if x >= 6 and x < 9 then
+                        x = x + 1
+                        UI.setAttributes("furchtValue", {color = "#2c583b"})
+                        UI.setValue("furchtValue", x)
+                        obj.setPosition(markerPos  + Vector(0,0,markerBound.size.z) + Vector(0, 0, 0.1615))
+                    elseif x >= 1 and x <= 6 then
+                        x = x + 1
+                        UI.setAttributes("furchtValue", {color = "#1a0d00"})
+                        UI.setValue("furchtValue", x)
+                        obj.setPosition(markerPos  + Vector(0,0,markerBound.size.z) + Vector(0, 0, 0.1615))
+                    elseif x >= 0 and x < 1 then
+                        x = x + 1
+                        UI.setAttributes("furchtValue", {color = "#700000"})
+                        UI.setValue("furchtValue", x)
+                        obj.setPosition(markerPos  + Vector(0,0,markerBound.size.z) + Vector(0, 0, 0.1615))
+                    end
+                end
+                if id == "furchtPlusBtn" then
+                    if x <= 9 and x > 7 then
+                        x = x - 1
+                        UI.setAttributes("furchtValue", {color = "#2c583b"})
+                        UI.setValue("furchtValue", x)
+                        obj.setPosition(markerPos  - Vector(0,0,markerBound.size.z) - Vector(0, 0, 0.1615)) 
+                    elseif x <= 7 and x > 2 then
+                        x = x - 1
+                        UI.setAttributes("furchtValue", {color = "#1a0d00"})
+                        UI.setValue("furchtValue", x)
+                        obj.setPosition(markerPos  - Vector(0,0,markerBound.size.z) - Vector(0, 0, 0.1615))  
+                    elseif x <= 2 and x > 0 then
+                        x = x - 1
+                        UI.setAttributes("furchtValue", {color = "#700000"})
+                        UI.setValue("furchtValue", x)
+                        obj.setPosition(markerPos  - Vector(0,0,markerBound.size.z) - Vector(0, 0, 0.1615))
+                    end
+                end 
+            end
+        end
+    end
 end
 
 function Charakter:nahrung (player, value, id)
@@ -296,6 +380,7 @@ function getObjects()
                 sloan:setAttributes(snaps, name)
                 sloan:setStartResources ()
                 --log(attributes)
+                return sloan
             elseif object.getName() == "Fyul" then
                 fyul = Charakter.new(getObjectFromGUID(object.guid))
                 local snaps = fyul:getAttributeSnaps()
@@ -304,5 +389,3 @@ function getObjects()
         end
     end
 end
-
-
