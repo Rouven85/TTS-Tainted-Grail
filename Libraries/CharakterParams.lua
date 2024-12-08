@@ -47,6 +47,7 @@
             furcht = 0,
             wahnsinn = 6,
             wahnsinnMax = 7,
+            cold = 8,
 
             aggression = 0,
             mut = 2,

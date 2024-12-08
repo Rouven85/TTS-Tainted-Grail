@@ -25,6 +25,7 @@ function Charakter.new(object)
     self.wahnsinn = charData[self.name].wahnsinn
     self.wahnsinnMax = charData[self.name].wahnsinnMax
     self.furcht = charData[self.name].furcht
+    self.cold = charData[self.name].cold
 
     self.aggression = charData[self.name].aggression
     self.mut = charData[self.name].mut
@@ -137,7 +138,6 @@ function Charakter:setAttributes(snaps, name)
     local urlHealthMarker = "https://steamusercontent-a.akamaihd.net/ugc/54702617431588104/240759A7D0086AC8CC314B969FE1469ED4ADAC2B/"
     for key1, posVector in pairs(snaps) do
         if name ~= nil and name[key1] ~= nil and name[key1] ~= "Gesundheit" then
-            log(name[key1])
             local position = self.object.positionToWorld(posVector)
             local objectName = name[key1]
             spawnObjectFromFile(url ,position, objectName)
@@ -149,7 +149,19 @@ function Charakter:setAttributes(snaps, name)
     end
 end
 
-
+function Charakter:setColdMarker()
+    local url = "https://steamusercontent-a.akamaihd.net/ugc/54702617428416061/F24A4BE24C0FDC9234884DCF180170EBA9693F8B/"
+    local position = self.object.positionToWorld(posVector)
+    --snaps, name = self.getAttributeSnaps()
+    --log(snaps)
+    --log(name)
+   --[[  for key1, posVector in pairs(snaps) do
+        if name ~= nil and name[key1] ~= nil then
+            
+        end
+    end --]]
+    --spawnObjectFromFile(url ,position, objectName)
+end
 
 function callCountMethod(player, value, id)
     local distance = distance
@@ -163,7 +175,12 @@ function callCountMethod(player, value, id)
                 end
             end    
         elseif id == "coldMinusBtn" or id == "coldPlusBtn" then
-            Charakter:coldCount (player, value, id)
+            if object.hasTag("PlayerBoard") then
+                if object.getName() == "Sloan" then
+                    sloan = Charakter.new(getObjectFromGUID(object.guid))
+                    sloan:coldCount (player, value, id)
+                end
+            end
         elseif id == "gesundheitPlusBtn" or id == "gesundheitMinusBtn" then
             if object.hasTag("PlayerBoard") then
                 if object.getName() == "Sloan" then
@@ -247,7 +264,59 @@ function Charakter:energieCount (player, value, id)
 end
 
 function Charakter:coldCount (player, value, id)
-    log("Hallo")
+    local url = "https://steamusercontent-a.akamaihd.net/ugc/54702617428416061/F24A4BE24C0FDC9234884DCF180170EBA9693F8B/"
+    local x = tonumber(UI.getValue("coldValue"))
+    local y = tonumber(UI.getValue("healthValue"))
+    local allObjects = getAllObjects()
+    local charakterBoard = self.object
+    local boardBounds = charakterBoard.getBounds()
+    local snaps, name = self:getAttributeSnaps()
+    local healthMarkerPosition = vector(0, 0, 0)
+    local healthMarker = nil
+    local markerBound = nil
+    local markerZValue = nil 
+    for _, obj in ipairs(allObjects) do
+        if obj.getName() == "Gesundheit" and obj ~= nil then
+            healthMarker = obj
+            healthMarkerPosition = healthMarker.getPosition()
+            markerBound = healthMarker.getBounds()
+            markerZValue = markerBound.size.z 
+        end
+    end
+    if id == "coldPlusBtn" and x == 0 then
+        x = x + 1
+        y = y - 1
+        for key1, posVector in pairs(snaps) do
+            if name ~= nil and name[key1] ~= nil then
+                if key1 == "HealthSnap 1" then
+                    local position = self.object.positionToWorld(posVector)
+                    local objectName = "Unterkühlung"
+                    if healthMarkerPosition.x == position.x then
+                        healthMarker.setPosition(healthMarkerPosition - Vector(0,0,markerZValue) - Vector(0, 0, 0.05))
+                        spawnObjectFromFile(url ,position, objectName)
+                    end
+                end
+            end
+        end
+        UI.setValue("healthValue", y)
+        UI.setValue("coldValue", x) 
+    elseif id == "coldPlusBtn" and x > 0 and x < self.health then
+        x = x + 1
+        y = y - 1
+        healthMarkerPosition = healthMarker.getPosition()
+        for _, coldMarker in ipairs(allObjects) do
+            if coldMarker.getName() == "Unterkühlung" then
+                local coldMarkerPos = coldMarker.getPosition()
+                if y + x == self.cold then 
+                    coldMarker.setPosition(coldMarker.getPosition() - Vector(0,0,markerZValue) - Vector(0, 0, 0.05))
+                    healthMarker.setPosition(healthMarkerPosition - Vector(0,0,markerZValue) - Vector(0, 0, 0.05))
+                end
+
+            end
+        end
+        UI.setValue("healthValue", y)
+        UI.setValue("coldValue", x) 
+    end
 end
 
 function Charakter:healthCount (player, value, id)
@@ -260,7 +329,6 @@ function Charakter:healthCount (player, value, id)
         if math.abs(objPos.x - charakterBoard.getPosition().x) < boardBounds.size.x / 2 and
            math.abs(objPos.z - charakterBoard.getPosition().z) < boardBounds.size.z / 2 then
             if obj.getName() == "Gesundheit" then
-                log(obj.getName())
                 local markerPos = obj.getPosition()
                 local markerBound = obj.getBounds()
                 local markerZValue = markerBound.size.z 
