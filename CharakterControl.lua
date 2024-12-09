@@ -303,17 +303,26 @@ function Charakter:coldCount (player, value, id)
         end
     end
     
+    if id =="coldPlusBtn" and x == 0 and coldMarker == nil then
+        --[[ local healthPos = healthMarker.getPosition()
+        local coldPos = coldMarker.getPosition()
+        local markerDiff1 = coldPos.z - healthPos.z
+        if markerDiff1 > 0.5 and x <= self.cold then --]]
+            spawnObjectFromFile(url ,position, objectName)
+        
+    end
     
     if id == "coldPlusBtn" and x == 0 then
+       
+        log(markerDiff1)
         x = x + 1
         y = y - 1
         if y + x == self.cold then
             healthMarker.setPosition(healthMarkerPosition - Vector(0,0,markerZValue) - Vector(0, 0, 0.05))
             spawnObjectFromFile(url ,position, objectName)
-        end   
+        end  
         UI.setValue("healthValue", y)
         UI.setValue("coldValue", x) 
-    
     end
     if coldMarker and energieMarker and id == "coldPlusBtn" then
         local coldPos = coldMarker.getPosition()
@@ -344,39 +353,6 @@ function Charakter:coldCount (player, value, id)
             UI.setValue("coldValue", x) 
         end
     end
-        
-
-   --[[  if coldMarker and id == "coldPlusBtn" then
-        
-        local coldPos = coldMarker.getPosition()
-        local healthPos = healthMarker.getPosition()
-        local markerDiff1 = coldPos.z - healthPos.z
-      
-        if markerDiff1 <= 0.5 and x < self.cold then
-            y = y - 1
-            x = x + 1
-            healthMarker.setPosition(healthMarkerPosition - Vector(0,0,markerZValue) - Vector(0, 0, 0.05))
-            coldMarker.setPosition(coldMarker.getPosition() - Vector(0,0,markerZValue) - Vector(0, 0, 0.05))
-            UI.setValue("healthValue", y)
-            UI.setValue("coldValue", x)  
-     
-        elseif markerDiff1 > 0.5 then
-            x = x + 1
-            coldMarker.setPosition(coldMarker.getPosition() - Vector(0,0,markerZValue) - Vector(0, 0, 0.05))
-            UI.setValue("coldValue", x) 
-        end  
-    end --]]
-    --[[ if coldMarker and id == "coldPlusBtn" then
-        if coldMarker.getPosition() ~= healthMarker.getPosition() then
-            x = x + 1
-            y = y - 1
-            coldMarker.setPosition(coldMarker.getPosition() - Vector(0,0,markerZValue) - Vector(0, 0, 0.05))
-            UI.setValue("healthValue", y)
-            UI.setValue("coldValue", x)  
-        end  
-    end --]]
-    
-    log(coldMarker)
     if id == "coldMinusBtn" and x < self.cold and x > 1 then
         x = x - 1
         UI.setValue("coldValue", x) 
@@ -408,9 +384,6 @@ function Charakter:healthCount (player, value, id)
                         UI.setAttributes("healthValue", {color = "#1a0d00"})
                         UI.setValue("healthValue", x)
                         obj.setPosition(markerPos  + Vector(0,0,markerZValue) + Vector(0, 0, 0.05))
-                        if x + y == self.cold then
-                           
-                        end
                         y = y - 1
                     end
                 end
