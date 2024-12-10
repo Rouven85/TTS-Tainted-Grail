@@ -20,7 +20,7 @@
         <row preferredHeight = "40">
             <cell>
                <Panel>
-                    <Button id = "energieMinusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
+                    <Button id = "energiePlusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
                </Panel>             
             </cell>
             <cell>
@@ -54,7 +54,7 @@
         <row preferredHeight = "40">
             <cell> 
                 <Panel>
-                    <Button id = "energiePlusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
+                    <Button id = "energieMinusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
                 </Panel>
             </cell>
             <cell>

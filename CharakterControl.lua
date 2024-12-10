@@ -211,57 +211,91 @@ function callCountMethod(player, value, id)
 end
 
 function Charakter:energieCount (player, value, id)
-    local x = tonumber(UI.getValue("energieValue"))
+    local currentEnergie = tonumber(UI.getValue("energieValue"))
+    local currentHealth = tonumber(UI.getValue("healthValue"))
     local allObjects = getAllObjects()
     local charakterBoard = self.object
     local boardBounds = charakterBoard.getBounds()
+    local healthMarker = nil
+    local energieMarker = nil
+    local markerPos = nil
+    local markerBound = nil
+    local markerZValue = nil
+    local rgb = {r=112, g=0, b=0}
+
     for _, obj in ipairs(allObjects) do
         local objPos = obj.getPosition()
         if math.abs(objPos.x - charakterBoard.getPosition().x) < boardBounds.size.x / 2 and
            math.abs(objPos.z - charakterBoard.getPosition().z) < boardBounds.size.z / 2 then
             if obj.getName() == "Energie" then
-                local markerPos = obj.getPosition()
-                local markerBound = obj.getBounds()
-                local markerZValue = markerBound.size.z 
-                if id == "energieMinusBtn" then
-                    if x >= self.energie and x < (self.energie + self.energieBonus) then
-                        x = x + 1
-                        UI.setAttributes("energieValue", {color = "#2c583b"})
-                        UI.setValue("energieValue", x)
-                        obj.setPosition(markerPos  + Vector(0,0,markerBound.size.z) + Vector(0, 0, 0.1615))
-                    elseif x >= self.erschoepft and x <= self.energie then
-                        x = x + 1
-                        UI.setAttributes("energieValue", {color = "#1a0d00"})
-                        UI.setValue("energieValue", x)
-                        obj.setPosition(markerPos  + Vector(0,0,markerBound.size.z) + Vector(0, 0, 0.1615))
-                    elseif x >= 0 and x < self.erschoepft then
-                        x = x + 1
-                        UI.setAttributes("energieValue", {color = "#700000"})
-                        UI.setValue("energieValue", x)
-                        obj.setPosition(markerPos  + Vector(0,0,markerBound.size.z) + Vector(0, 0, 0.1615))
-                    end
-                end
-                if id == "energiePlusBtn" then
-                    if x <= (self.energie + self.energieBonus) and x > self.energie +1 then
-                        x = x - 1
-                        UI.setAttributes("energieValue", {color = "#2c583b"})
-                        UI.setValue("energieValue", x)
-                        obj.setPosition(markerPos  - Vector(0,0,markerBound.size.z) - Vector(0, 0, 0.1615)) 
-                    elseif x <= (self.energie + 1) and x > (self.erschoepft + 1) then
-                        x = x - 1
-                        UI.setAttributes("energieValue", {color = "#1a0d00"})
-                        UI.setValue("energieValue", x)
-                        obj.setPosition(markerPos  - Vector(0,0,markerBound.size.z) - Vector(0, 0, 0.1615))  
-                    elseif x <= (self.erschoepft + 1) and x > 0 then
-                        x = x - 1
-                        UI.setAttributes("energieValue", {color = "#700000"})
-                        UI.setValue("energieValue", x)
-                        obj.setPosition(markerPos  - Vector(0,0,markerBound.size.z) - Vector(0, 0, 0.1615))
-                    end
-                end 
+                markerPos = obj.getPosition()
+                markerBound = obj.getBounds()
+                markerZValue = markerBound.size.z
+                energieMarker = obj
+            end
+            if obj.getName() == "Gesundheit" then
+                healthMarker = obj
+            end
+        end
+    end     
+    if id == "energieMinusBtn" then
+        if currentEnergie <= (self.energie + self.energieBonus) and currentEnergie > self.energie +1 then
+            currentEnergie = currentEnergie - 1
+            UI.setAttributes("energieValue", {color = "#2c583b"})
+            UI.setValue("energieValue", currentEnergie)
+            energieMarker.setPosition(markerPos  - Vector(0,0,markerBound.size.z) - Vector(0, 0, 0.1615)) 
+        elseif currentEnergie <= (self.energie + 1) and currentEnergie > (self.erschoepft + 1) then
+            currentEnergie = currentEnergie - 1
+            UI.setAttributes("energieValue", {color = "#1a0d00"})
+            UI.setValue("energieValue", currentEnergie)
+            energieMarker.setPosition(markerPos  - Vector(0,0,markerBound.size.z) - Vector(0, 0, 0.1615))  
+        elseif currentEnergie <= (self.erschoepft + 1) and currentEnergie > 0 then
+            currentEnergie = currentEnergie - 1
+            UI.setAttributes("energieValue", {color = "#700000"})
+            UI.setValue("energieValue", currentEnergie)
+            energieMarker.setPosition(markerPos  - Vector(0,0,markerBound.size.z) - Vector(0, 0, 0.1615))
+            broadcastToAll(self.name.. " ist Erschöpft",rgb)
+        end
+    elseif id == "energiePlusBtn" then
+        if currentEnergie - self.healthOffset < currentHealth then
+            if currentEnergie >= self.energie and currentEnergie < (self.energie + self.energieBonus) then
+                currentEnergie = currentEnergie + 1
+                UI.setAttributes("energieValue", {color = "#2c583b"})
+                UI.setValue("energieValue", currentEnergie)
+                energieMarker.setPosition(markerPos  + Vector(0,0,markerBound.size.z) + Vector(0, 0, 0.1615))
+            elseif currentEnergie >= self.erschoepft and currentEnergie <= self.energie then
+                currentEnergie = currentEnergie + 1
+                UI.setAttributes("energieValue", {color = "#1a0d00"})
+                UI.setValue("energieValue", currentEnergie)
+                energieMarker.setPosition(markerPos  + Vector(0,0,markerBound.size.z) + Vector(0, 0, 0.1615))
+            elseif currentEnergie >= 0 and currentEnergie < self.erschoepft then
+                currentEnergie = currentEnergie + 1
+                UI.setAttributes("energieValue", {color = "#700000"})
+                UI.setValue("energieValue", currentEnergie)
+                energieMarker.setPosition(markerPos  + Vector(0,0,markerBound.size.z) + Vector(0, 0, 0.1615))
+                
             end
         end
     end
+--[[     if id == "energiePlusBtn" then
+            if currentEnergie <= (self.energie + self.energieBonus) and currentEnergie > self.energie +1 then
+                currentEnergie = currentEnergie - 1
+                UI.setAttributes("energieValue", {color = "#2c583b"})
+                UI.setValue("energieValue", currentEnergie)
+                obj.setPosition(markerPos  - Vector(0,0,markerBound.size.z) - Vector(0, 0, 0.1615)) 
+            elseif currentEnergie <= (self.energie + 1) and currentEnergie > (self.erschoepft + 1) then
+                currentEnergie = currentEnergie - 1
+                UI.setAttributes("energieValue", {color = "#1a0d00"})
+                UI.setValue("energieValue", currentEnergie)
+                obj.setPosition(markerPos  - Vector(0,0,markerBound.size.z) - Vector(0, 0, 0.1615))  
+            elseif currentEnergie <= (self.erschoepft + 1) and currentEnergie > 0 then
+                currentEnergie = currentEnergie - 1
+                UI.setAttributes("energieValue", {color = "#700000"})
+                UI.setValue("energieValue", currentEnergie)
+                obj.setPosition(markerPos  - Vector(0,0,markerBound.size.z) - Vector(0, 0, 0.1615))
+
+            end
+    end  --]]
 end
 
 function Charakter:coldCount (player, value, id)
@@ -306,13 +340,9 @@ function Charakter:coldCount (player, value, id)
             end
         end
     end
-    
-    
-    
-
-
-
     if id == "coldPlusBtn" and currentCold < self.cold and currentCold >= self.death then
+        log(currentHealth + self.healthOffset)
+        log(currentEnergie)
         local healthPos = healthMarker.getPosition()
         local energiePos = energieMarker.getPosition()
         currentCold = currentCold + 1
@@ -326,13 +356,15 @@ function Charakter:coldCount (player, value, id)
                 healthMarker.setPosition(healthMarker.getPosition() - Vector(0,0,markerZValue) - Vector(0, 0, 0.05))
                 coldMarker.setPosition(coldMarker.getPosition() - Vector(0,0,markerZValue) - Vector(0, 0, 0.05))
                 UI.setValue("healthValue", currentHealth)
+
+                if currentHealth + self.healthOffset == currentEnergie -1 then
+                    
+                    currentEnergie = currentEnergie - 1
+                    energieMarker.setPosition(energieMarker.getPosition() - Vector(0,0,markerZValue) - Vector(0, 0, 0.05))
+                    UI.setValue("energieValue", currentEnergie)
+                end
             else
                 coldMarker.setPosition(coldMarker.getPosition() - Vector(0,0,markerZValue) - Vector(0, 0, 0.05))
-            end
-            if currentHealth + self.healthOffset < self.energie then
-                currentEnergie = currentEnergie - 1
-                energieMarker.setPosition(energieMarker.getPosition() - Vector(0,0,markerZValue) - Vector(0, 0, 0.05))
-                UI.setValue("energieValue", currentEnergie)
             end
         else
             if currentHealth == self.health then
@@ -344,7 +376,6 @@ function Charakter:coldCount (player, value, id)
                 spawnObjectFromFile(url ,position, objectName)
             end 
         end
-
     elseif id == "coldMinusBtn" and currentCold > self.death and currentCold <= self.cold then
         currentCold = currentCold - 1
         UI.setValue("coldValue", currentCold)
@@ -353,100 +384,71 @@ function Charakter:coldCount (player, value, id)
             destroyObject(coldMarker)
         end
     end
-
-
- --[[   if id =="coldPlusBtn" and y < self.health and coldMarker == nil then
-            spawnObjectFromFile(url ,position, objectName)  
-    end
-    
-    if id == "coldPlusBtn" and x == 0 then
-        x = x + 1
-        y = y - 1
-        if y + x == self.cold then
-            healthMarker.setPosition(healthMarkerPosition - Vector(0,0,markerZValue) - Vector(0, 0, 0.05))
-            spawnObjectFromFile(url ,position, objectName)
-        end  
-        UI.setValue("healthValue", y)
-        UI.setValue("coldValue", x) 
-    end
-    if coldMarker and energieMarker and id == "coldPlusBtn" then
-        local coldPos = coldMarker.getPosition()
-        local z = tonumber(UI.getValue("energieValue"))
-        local energiePos = energieMarker.getPosition()
-        local healthPos = healthMarker.getPosition()
-        local markerDiff1 = coldPos.z - healthPos.z
-        local markerDiff2 = healthPos.z - energiePos.z
-        log(markerDiff2)
-        if markerDiff1 <= 0.5 and x < self.cold then
-            y = y - 1
-            x = x + 1
-            healthMarker.setPosition(healthMarkerPosition - Vector(0,0,markerZValue) - Vector(0, 0, 0.05))
-            coldMarker.setPosition(coldMarker.getPosition() - Vector(0,0,markerZValue) - Vector(0, 0, 0.05))
-            UI.setValue("healthValue", y)
-            UI.setValue("coldValue", x)  
-     
-        elseif markerDiff1 > 0.5 then
-            x = x + 1
-            coldMarker.setPosition(coldMarker.getPosition() - Vector(0,0,markerZValue) - Vector(0, 0, 0.05))
-            UI.setValue("coldValue", x) 
-        end
-        if markerDiff2 < 0.2 and z > self.erschoepft then
-            z = z - 1
-            healthMarker.setPosition(healthMarkerPosition - Vector(0,0,markerZValue) - Vector(0, 0, 0.05))
-            energieMarker.setPosition(energiePos - Vector(0,0,markerZValue) - Vector(0, 0, 0.05))
-            UI.setValue("energieValue", z)
-            UI.setValue("coldValue", x) 
-        end
-    end
-    if id == "coldMinusBtn" and x <= self.cold and x > 1 then
-        x = x - 1
-        UI.setValue("coldValue", x) 
-        coldMarker.setPosition(coldMarker.getPosition() + Vector(0,0,markerZValue) + Vector(0, 0, 0.05))
-    elseif id == "coldMinusBtn" and x == 1 then
-        x = x - 1
-        UI.setValue("coldValue", x) 
-        
-    end --]]
 end 
 
 function Charakter:healthCount (player, value, id)
-    local x = tonumber(UI.getValue("healthValue"))
-    local y = tonumber(UI.getValue("coldValue"))
+    local currentHealth = tonumber(UI.getValue("healthValue"))
+    local currentCold = tonumber(UI.getValue("coldValue"))
+    local currentEnergie = tonumber(UI.getValue("energieValue"))
     local allObjects = getAllObjects()
     local charakterBoard = self.object
     local boardBounds = charakterBoard.getBounds()
+    local energieMarker = nil
+    local healthMarker = nil
+    local coldMarker = nil
+    local markerZValue = nil 
     for _, obj in ipairs(allObjects) do
         local objPos = obj.getPosition()
         if math.abs(objPos.x - charakterBoard.getPosition().x) < boardBounds.size.x / 2 and
            math.abs(objPos.z - charakterBoard.getPosition().z) < boardBounds.size.z / 2 then
             if obj.getName() == "Gesundheit" then
-                local markerPos = obj.getPosition()
-                local markerBound = obj.getBounds()
-                local markerZValue = markerBound.size.z 
-                if id == "gesundheitPlusBtn" then
-                    if x >= self.death and x < (self.health) and x + y ~= self.cold then
-                        x = x + 1
-                        UI.setAttributes("healthValue", {color = "#1a0d00"})
-                        UI.setValue("healthValue", x)
-                        obj.setPosition(markerPos  + Vector(0,0,markerZValue) + Vector(0, 0, 0.05))
-                        y = y - 1
-                    end
-                end
-                if id == "gesundheitMinusBtn" then
-                    if x <= self.health and x > self.death +1 then
-                        x = x - 1
-                        UI.setAttributes("healthValue", {color = "#1a0d00"})
-                        UI.setValue("healthValue", x)
-                        obj.setPosition(markerPos  - Vector(0,0,markerBound.size.z)  - Vector(0, 0, 0.05)) 
-                    elseif x <= self.death + 1 and x > 0 then
-                        x = x - 1
-                        UI.setAttributes("healthValue", {color = "#700000"})
-                        UI.setValue("healthValue", x)
-                        obj.setPosition(markerPos  - Vector(0,0,markerBound.size.z) - Vector(0, 0, 0.05))  
-                    end
-                end 
+                healthMarker = obj
+                healthMarkerPosition = healthMarker.getPosition()
+                markerBound = healthMarker.getBounds()
+                markerZValue = markerBound.size.z 
+            end
+            if obj.getName() == "Energie" then
+                energieMarker = obj
+            end
+            if obj.getName() == "Unterkühlung" then
+                coldMarker = obj
             end
         end
+    end
+    local healthPos = healthMarker.getPosition()
+    
+    if id == "gesundheitPlusBtn" then
+        UI.setAttributes("healthValue", {color = "#1a0d00"})
+        if coldMarker then
+            if currentHealth >= self.death and currentHealth < self.health then
+                if (self.health - currentCold) ~= currentHealth then
+                    currentHealth = currentHealth + 1
+                    healthMarker.setPosition(healthMarker.getPosition() + Vector(0,0,markerZValue) + Vector(0, 0, 0.05))       
+                end
+            end
+        elseif currentHealth >= self.death and currentHealth < self.health then
+            currentHealth = currentHealth + 1
+            healthMarker.setPosition(healthMarker.getPosition() + Vector(0,0,markerZValue) + Vector(0, 0, 0.05))         
+        end   
+        UI.setValue("healthValue", currentHealth)
+    elseif id == "gesundheitMinusBtn" then
+        UI.setAttributes("healthValue", {color = "#1a0d00"})
+        if currentHealth <= self.health and currentHealth > self.death + 1 then
+            currentHealth = currentHealth - 1
+            if currentEnergie <= currentHealth then
+                healthMarker.setPosition(healthMarker.getPosition() - Vector(0,0,markerZValue)  - Vector(0, 0, 0.05)) 
+            else
+                currentEnergie = currentEnergie - 1
+                healthMarker.setPosition(healthMarker.getPosition() - Vector(0,0,markerZValue)  - Vector(0, 0, 0.05)) 
+                energieMarker.setPosition(energieMarker.getPosition() - Vector(0,0,markerZValue)  - Vector(0, 0, 0.05)) 
+            end  
+        elseif currentHealth <= self.death + 1 then
+            currentHealth = currentHealth - 1
+            healthMarker.setPosition(healthMarker.getPosition() - Vector(0,0,markerZValue)  - Vector(0, 0, 0.05)) 
+            UI.setAttributes("healthValue", {color = "#700000"})
+        end
+        UI.setValue("healthValue", currentHealth)
+        UI.setValue("energieValue", currentEnergie)
     end
 end
 
