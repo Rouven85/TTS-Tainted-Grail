@@ -43,6 +43,7 @@
             energieBonus = 3,
             erschoepft = 1,
             health = 8,
+            healthOffset = 1,
             death = 0,
             furcht = 0,
             wahnsinn = 6,

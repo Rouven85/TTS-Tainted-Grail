@@ -21,6 +21,7 @@ function Charakter.new(object)
     self.energieBonus = charData[self.name].energieBonus
     self.erschoepft = charData[self.name].erschoepft
     self.health = charData[self.name].health
+    self.healthOffset = charData[self.name].healthOffset
     self.death = charData[self.name].death
     self.wahnsinn = charData[self.name].wahnsinn
     self.wahnsinnMax = charData[self.name].wahnsinnMax
@@ -265,8 +266,9 @@ end
 
 function Charakter:coldCount (player, value, id)
     local url = "https://steamusercontent-a.akamaihd.net/ugc/54702617428416061/F24A4BE24C0FDC9234884DCF180170EBA9693F8B/"
-    local x = tonumber(UI.getValue("coldValue"))
-    local y = tonumber(UI.getValue("healthValue"))
+    local currentCold = tonumber(UI.getValue("coldValue"))
+    local currentHealth = tonumber(UI.getValue("healthValue"))
+    local currentEnergie = tonumber(UI.getValue("energieValue"))
     local allObjects = getAllObjects()
     local charakterBoard = self.object
     local boardBounds = charakterBoard.getBounds()
@@ -286,14 +288,16 @@ function Charakter:coldCount (player, value, id)
             healthMarkerPosition = healthMarker.getPosition()
             markerBound = healthMarker.getBounds()
             markerZValue = markerBound.size.z 
-        elseif obj.getName() == "Unterkühlung" and obj ~= nil then
-            coldMarker = obj   
-        elseif obj.getName() == "Energie" and obj ~= nil then
-            energieMarker = obj
-            
+        end
+        if obj.getName() == "Unterkühlung" and obj ~= nil then
+            coldMarker = obj  
+        end 
+        if obj.getName() == "Energie" and obj ~= nil then
+            energieMarker = obj   
         end
     end
     
+
     for key1, posVector in pairs(snaps) do
         if name ~= nil and name[key1] ~= nil then
             if key1 == "HealthSnap 1" then
@@ -303,18 +307,59 @@ function Charakter:coldCount (player, value, id)
         end
     end
     
-    if id =="coldPlusBtn" and x == 0 and coldMarker == nil then
-        --[[ local healthPos = healthMarker.getPosition()
-        local coldPos = coldMarker.getPosition()
-        local markerDiff1 = coldPos.z - healthPos.z
-        if markerDiff1 > 0.5 and x <= self.cold then --]]
-            spawnObjectFromFile(url ,position, objectName)
-        
+    
+    
+
+
+
+    if id == "coldPlusBtn" and currentCold < self.cold and currentCold >= self.death then
+        local healthPos = healthMarker.getPosition()
+        local energiePos = energieMarker.getPosition()
+        currentCold = currentCold + 1
+        UI.setValue("coldValue", currentCold)
+        if coldMarker then
+            local coldPos = coldMarker.getPosition()
+            local coldToHealth = coldPos.z - healthPos.z
+            local coldToEnergie = coldPos.z - energiePos.z
+            if coldToHealth < 0.5 then
+                currentHealth = currentHealth - 1
+                healthMarker.setPosition(healthMarker.getPosition() - Vector(0,0,markerZValue) - Vector(0, 0, 0.05))
+                coldMarker.setPosition(coldMarker.getPosition() - Vector(0,0,markerZValue) - Vector(0, 0, 0.05))
+                UI.setValue("healthValue", currentHealth)
+            else
+                coldMarker.setPosition(coldMarker.getPosition() - Vector(0,0,markerZValue) - Vector(0, 0, 0.05))
+            end
+            if currentHealth + self.healthOffset < self.energie then
+                currentEnergie = currentEnergie - 1
+                energieMarker.setPosition(energieMarker.getPosition() - Vector(0,0,markerZValue) - Vector(0, 0, 0.05))
+                UI.setValue("energieValue", currentEnergie)
+            end
+        else
+            if currentHealth == self.health then
+                currentHealth = currentHealth - 1
+                healthMarker.setPosition(healthMarker.getPosition() - Vector(0,0,markerZValue) - Vector(0, 0, 0.05))
+                spawnObjectFromFile(url ,position, objectName)
+                UI.setValue("healthValue", currentHealth)
+            else 
+                spawnObjectFromFile(url ,position, objectName)
+            end 
+        end
+
+    elseif id == "coldMinusBtn" and currentCold > self.death and currentCold <= self.cold then
+        currentCold = currentCold - 1
+        UI.setValue("coldValue", currentCold)
+        coldMarker.setPosition(coldMarker.getPosition() + Vector(0,0,markerZValue) + Vector(0, 0, 0.05))
+        if currentCold == self.death then
+            destroyObject(coldMarker)
+        end
+    end
+
+
+ --[[   if id =="coldPlusBtn" and y < self.health and coldMarker == nil then
+            spawnObjectFromFile(url ,position, objectName)  
     end
     
     if id == "coldPlusBtn" and x == 0 then
-       
-        log(markerDiff1)
         x = x + 1
         y = y - 1
         if y + x == self.cold then
@@ -353,16 +398,16 @@ function Charakter:coldCount (player, value, id)
             UI.setValue("coldValue", x) 
         end
     end
-    if id == "coldMinusBtn" and x < self.cold and x > 1 then
+    if id == "coldMinusBtn" and x <= self.cold and x > 1 then
         x = x - 1
         UI.setValue("coldValue", x) 
         coldMarker.setPosition(coldMarker.getPosition() + Vector(0,0,markerZValue) + Vector(0, 0, 0.05))
     elseif id == "coldMinusBtn" and x == 1 then
         x = x - 1
         UI.setValue("coldValue", x) 
-        destroyObject(coldMarker)
-    end
-end
+        
+    end --]]
+end 
 
 function Charakter:healthCount (player, value, id)
     local x = tonumber(UI.getValue("healthValue"))
