@@ -8,63 +8,63 @@
     <TableLayout columnWidths = "60 60 60" padding = "120 0 170 0" cellBackgroundColor = "black" cellSpacing = "5" >
         <row preferredHeight = "60">  
             <cell>
-                <Button id = "coldMinusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
+                <Button id = "White_coldMinusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
             </cell>
             <cell>
                 <Image image = "https://steamusercontent-a.akamaihd.net/ugc/54701801996067217/9511A6FDFFEA4269C040D33E588CBD813957352D/" width = "40" height = "40" color = "#FFFFFF80"/>
             </cell>
             <cell>
-            <Button id = "coldPlusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
+            <Button id = "White_coldPlusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
             </cell>
         </row>
         <row preferredHeight = "40">
             <cell>
                <Panel>
-                    <Button id = "energiePlusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
+                    <Button id = "White_energiePlusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
                </Panel>             
             </cell>
             <cell>
                 <Panel>
-                    <Button id = "gesundheitPlusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
+                    <Button id = "White_gesundheitPlusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
                 </Panel>  
             </cell>
             <cell>
                 <Panel>
-                    <Button id = "furchtPlusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
+                    <Button id = "White_furchtPlusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
                 </Panel> 
                 </cell>
             </row>
         <row preferredHeight = "60">
             <cell>
                 <Panel>
-                    <text id = "energieValue" fontStyle = "Bold" fontSize = "25" color = "#1a0d00"> 6 </text>
+                    <text id = "White_energieValue" fontStyle = "Bold" fontSize = "25" color = "#1a0d00"> 6 </text>
                 </Panel>
             </cell>
             <cell>
                 <Panel>
-                    <text id = "healthValue" fontStyle = "Bold" fontSize = "25" color = "#1a0d00"> 8 </text>
+                    <text id = "White_healthValue" fontStyle = "Bold" fontSize = "25" color = "#1a0d00"> 8 </text>
                 </Panel>
             </cell>
             <cell>
                 <Panel>
-                    <text id = "furchtValue" fontStyle = "Bold" fontSize = "25" color = "#1a0d00"> 0 </text>
+                    <text id = "White_furchtValue" fontStyle = "Bold" fontSize = "25" color = "#1a0d00"> 0 </text>
                 </Panel>
             </cell>
         </row>
         <row preferredHeight = "40">
             <cell> 
                 <Panel>
-                    <Button id = "energieMinusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
+                    <Button id = "White_energieMinusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
                 </Panel>
             </cell>
             <cell>
                 <Panel>
-                    <Button id = "gesundheitMinusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
+                    <Button id = "White_gesundheitMinusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
                 </Panel>
             </cell>
             <cell>
                 <Panel>
-                    <Button id = "furchtMinusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
+                    <Button id = "White_furchtMinusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
                 </Panel>
             </cell>
         </row>
@@ -84,27 +84,27 @@
     <VerticalLayout width = "68" height = "310" offsetXY = "129 -40" spacing = "8" >
         <Button padding = "0 0 2 0 " id = "Nahrung" onClick = "callCountMethod" color = "none">
             <Text alignment = "UpperCenter" fontSize = "12" color = "#fafcd7">Nahrung</Text>
-            <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4" id = "nahrungValue" color = "#fafcd7">0</Text>
+            <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4" id = "White_nahrungValue" color = "#fafcd7">0</Text>
         </Button>
         <Button padding = "0 0 2 0 " id = "Reichtum" onClick = "callCountMethod" color = "none">
             <Text alignment = "UpperCenter" fontSize = "12" color = "#fafcd7">Reichtum</Text>
-            <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4" id = "reichtumValue" color = "#fafcd7">0</Text>
+            <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4" id = "White_reichtumValue" color = "#fafcd7">0</Text>
         </Button>
         <Button padding = "0 0 2 0 " id = "Ansehen" onClick = "callCountMethod" color = "none"> 
             <Text alignment = "UpperCenter" fontSize = "12" color = "#fafcd7">Ansehen</Text>
-            <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4" id = "ansehenValue" color = "#fafcd7">0</Text>
+            <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4" id = "White_ansehenValue" color = "#fafcd7">0</Text>
         </Button>
         <Button padding = "0 0 2 0 " id = "Erfahrung" onClick = "callCountMethod" color = "none">
             <Text alignment = "UpperCenter" fontSize = "12" color = "#fafcd7">Erfahrung</Text>
-            <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4" id = "erfahrungValue" color = "#fafcd7">0</Text>
+            <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4" id = "White_erfahrungValue" color = "#fafcd7">0</Text>
         </Button>
         <Button padding = "0 0 2 0 " id = "Magie" onClick = "callCountMethod" color = "none">
             <Text alignment = "UpperCenter" fontSize = "12" color = "#fafcd7">Magie</Text>
-            <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4" id = "magieValue" color = "#fafcd7">0</Text>
+            <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4" id = "White_magieValue" color = "#fafcd7">0</Text>
         </Button>
     </VerticalLayout> 
     <Panel padding = "0 40 0 160" >
-        <text id = "coldValue" fontSize = "25" fontStyle = "Bold" color = "#0e316e">0</text>
+        <text id = "White_coldValue" fontSize = "25" fontStyle = "Bold" color = "#0e316e">0</text>
     </Panel>
 </Panel>
 
