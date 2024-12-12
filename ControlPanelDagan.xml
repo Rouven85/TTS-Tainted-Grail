@@ -10,19 +10,19 @@
             <cell>
                <Panel>
                     <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
-                    <Button id = "daganEnergiePlusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
+                    <Button id = "Blue_energiePlusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
                </Panel>             
             </cell>
             <cell>
                 <Panel>
                     <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
-                    <Button id = "gesundheitPlusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
+                    <Button id = "Blue_gesundheitPlusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
                 </Panel>  
             </cell>
             <cell>
                 <Panel>
                     <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
-                    <Button id = "furchtPlusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
+                    <Button id = "Blue_furchtPlusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
                 </Panel> 
                 </cell>
             </row>
@@ -30,19 +30,19 @@
             <cell>
                 <Panel>
                     <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "60" color="#FFFFFF80"/> -->
-                    <text id = "energieValue" fontStyle = "Bold" fontSize = "25" color = "#1a0d00"> 6 </text>
+                    <text id = "Blue_energieValue" fontStyle = "Bold" fontSize = "25" color = "#1a0d00"> 6 </text>
                 </Panel>
             </cell>
             <cell>
                 <Panel>
                     <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "60" color="#FFFFFF80"/> -->
-                    <text id = "healthValue" fontStyle = "Bold" fontSize = "25" color = "#1a0d00"> 8 </text>
+                    <text id = "Blue_healthValue" fontStyle = "Bold" fontSize = "25" color = "#1a0d00"> 8 </text>
                 </Panel>
             </cell>
             <cell>
                 <Panel>
                     <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "60" color="#FFFFFF80"/>   -->
-                    <text id = "furchtValue" fontStyle = "Bold" fontSize = "25" color = "#1a0d00"> 0 </text>
+                    <text id = "Blue_furchtValue" fontStyle = "Bold" fontSize = "25" color = "#1a0d00"> 0 </text>
                 </Panel>
             </cell>
         </row>
@@ -50,19 +50,19 @@
             <cell> 
                 <Panel>
                     <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
-                    <Button id = "daganEnergieMinusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
+                    <Button id = "Blue_energieMinusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
                 </Panel>
             </cell>
             <cell>
                 <Panel>
                     <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
-                    <Button id = "gesundheitMinusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
+                    <Button id = "Blue_gesundheitMinusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
                 </Panel>
             </cell>
             <cell>
                 <Panel>
                    <!--  <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
-                    <Button id = "furchtMinusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
+                    <Button id = "Blue_furchtMinusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
                 </Panel>
             </cell>
         </row>
