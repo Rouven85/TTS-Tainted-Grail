@@ -2,8 +2,15 @@
  charData = {
         ["Dagan"] = {
             energie = 6,
+            energieBonus = 3,
+            erschoepft = 1,
             health = 9,
+            healthOffset = 0,
+            death = 0,
             furcht = 0,
+            wahnsinn = 5,
+            wahnsinnMax = 6,
+            cold = 9,
 
             aggression = 2,
             mut = 0,

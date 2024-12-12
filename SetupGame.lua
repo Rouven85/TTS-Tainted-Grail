@@ -115,8 +115,15 @@ function shuffleDecks ()
             local obj = getObjectFromGUID(encounter.getGUID())
             obj.shuffle()   
         end
+        if name == "ZufälligesEreignis Deck" then
+            encounter.shuffle()
+        end
+        if name == "Gegenstand Deck" then
+            encounter.shuffle()
+        end
     end
     end, 0.5, 3)
+
     allObjects = nil
 end
 

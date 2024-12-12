@@ -3,7 +3,7 @@
     childAlignment = "LowerRight"
     >
 </GridLayout> -->
-<Panel width = "470" height = "560" rectAlignment = "LowerRight" offsetXY = "0 10" allowDragging = "true" returnToOriginalPositionWhenReleased = "false" visibility = "white">
+<Panel id = "sloanUI" width = "470" height = "560" rectAlignment = "LowerRight" offsetXY = "0 10" allowDragging = "true" returnToOriginalPositionWhenReleased = "false" visibility = "white">
     <Image image="https://steamusercontent-a.akamaihd.net/ugc/54701168033197782/42067EDF431049DCD9557938353CBC9F1D0DAC8A/"/>
     <TableLayout columnWidths = "60 60 60" padding = "120 0 170 0" cellBackgroundColor = "black" cellSpacing = "5" >
         <row preferredHeight = "60">  
@@ -82,23 +82,23 @@
         </row>
     </TableLayout>
     <VerticalLayout width = "68" height = "310" offsetXY = "129 -40" spacing = "8" >
-        <Button padding = "0 0 2 0 " id = "sloanNahrung" onClick = "callCountMethod" color = "none">
+        <Button padding = "0 0 2 0 " id = "Nahrung" onClick = "callCountMethod" color = "none">
             <Text alignment = "UpperCenter" fontSize = "12" color = "#fafcd7">Nahrung</Text>
             <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4" id = "nahrungValue" color = "#fafcd7">0</Text>
         </Button>
-        <Button padding = "0 0 2 0 " id = "sloanReichtum" onClick = "callCountMethod" color = "none">
+        <Button padding = "0 0 2 0 " id = "Reichtum" onClick = "callCountMethod" color = "none">
             <Text alignment = "UpperCenter" fontSize = "12" color = "#fafcd7">Reichtum</Text>
             <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4" id = "reichtumValue" color = "#fafcd7">0</Text>
         </Button>
-        <Button padding = "0 0 2 0 " id = "sloanAnsehen" onClick = "callCountMethod" color = "none"> 
+        <Button padding = "0 0 2 0 " id = "Ansehen" onClick = "callCountMethod" color = "none"> 
             <Text alignment = "UpperCenter" fontSize = "12" color = "#fafcd7">Ansehen</Text>
             <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4" id = "ansehenValue" color = "#fafcd7">0</Text>
         </Button>
-        <Button padding = "0 0 2 0 " id = "sloanErfahrung" onClick = "callCountMethod" color = "none">
+        <Button padding = "0 0 2 0 " id = "Erfahrung" onClick = "callCountMethod" color = "none">
             <Text alignment = "UpperCenter" fontSize = "12" color = "#fafcd7">Erfahrung</Text>
             <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4" id = "erfahrungValue" color = "#fafcd7">0</Text>
         </Button>
-        <Button padding = "0 0 2 0 " id = "sloanMagie" onClick = "callCountMethod" color = "none">
+        <Button padding = "0 0 2 0 " id = "Magie" onClick = "callCountMethod" color = "none">
             <Text alignment = "UpperCenter" fontSize = "12" color = "#fafcd7">Magie</Text>
             <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4" id = "magieValue" color = "#fafcd7">0</Text>
         </Button>

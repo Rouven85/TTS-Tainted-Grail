@@ -3,7 +3,7 @@
     childAlignment = "LowerRight"
     >
 </GridLayout> -->
-<Panel width = "400" height = "400" rectAlignment = "LowerRight" offsetXY = "-80 10" allowDragging = "true" returnToOriginalPositionWhenReleased = "false" visibility = "Brown">
+<Panel id = "mabdUI" width = "400" height = "400" rectAlignment = "LowerRight" offsetXY = "-80 10" allowDragging = "true" returnToOriginalPositionWhenReleased = "false" visibility = "Brown">
     <Image image="https://steamusercontent-a.akamaihd.net/ugc/54701168033008616/B8BD2E245F413DC9BAA466D96AB3C710094AB569/"/>
     <TableLayout columnWidths = "60 60 60" padding = "100 0 125 0" cellBackgroundColor = "black" cellSpacing = "5" >
         <row preferredHeight = "30">

@@ -272,30 +272,10 @@ function Charakter:energieCount (player, value, id)
                 currentEnergie = currentEnergie + 1
                 UI.setAttributes("energieValue", {color = "#700000"})
                 UI.setValue("energieValue", currentEnergie)
-                energieMarker.setPosition(markerPos  + Vector(0,0,markerBound.size.z) + Vector(0, 0, 0.1615))
-                
+                energieMarker.setPosition(markerPos  + Vector(0,0,markerBound.size.z) + Vector(0, 0, 0.1615))   
             end
         end
     end
---[[     if id == "energiePlusBtn" then
-            if currentEnergie <= (self.energie + self.energieBonus) and currentEnergie > self.energie +1 then
-                currentEnergie = currentEnergie - 1
-                UI.setAttributes("energieValue", {color = "#2c583b"})
-                UI.setValue("energieValue", currentEnergie)
-                obj.setPosition(markerPos  - Vector(0,0,markerBound.size.z) - Vector(0, 0, 0.1615)) 
-            elseif currentEnergie <= (self.energie + 1) and currentEnergie > (self.erschoepft + 1) then
-                currentEnergie = currentEnergie - 1
-                UI.setAttributes("energieValue", {color = "#1a0d00"})
-                UI.setValue("energieValue", currentEnergie)
-                obj.setPosition(markerPos  - Vector(0,0,markerBound.size.z) - Vector(0, 0, 0.1615))  
-            elseif currentEnergie <= (self.erschoepft + 1) and currentEnergie > 0 then
-                currentEnergie = currentEnergie - 1
-                UI.setAttributes("energieValue", {color = "#700000"})
-                UI.setValue("energieValue", currentEnergie)
-                obj.setPosition(markerPos  - Vector(0,0,markerBound.size.z) - Vector(0, 0, 0.1615))
-
-            end
-    end  --]]
 end
 
 function Charakter:coldCount (player, value, id)
@@ -435,7 +415,7 @@ function Charakter:healthCount (player, value, id)
         UI.setAttributes("healthValue", {color = "#1a0d00"})
         if currentHealth <= self.health and currentHealth > self.death + 1 then
             currentHealth = currentHealth - 1
-            if currentEnergie <= currentHealth then
+            if currentEnergie <= currentHealth + self.healthOffset then
                 healthMarker.setPosition(healthMarker.getPosition() - Vector(0,0,markerZValue)  - Vector(0, 0, 0.05)) 
             else
                 currentEnergie = currentEnergie - 1

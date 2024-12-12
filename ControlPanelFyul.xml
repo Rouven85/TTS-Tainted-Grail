@@ -3,7 +3,7 @@
     childAlignment = "LowerRight"
     >
 </GridLayout> -->
-<Panel width = "400" height = "400" rectAlignment = "LowerRight" offsetXY = "-80 10" allowDragging = "true" returnToOriginalPositionWhenReleased = "false" visibility = "Green">
+<Panel id = "fyulUI" width = "400" height = "400" rectAlignment = "LowerRight" offsetXY = "-80 10" allowDragging = "true" returnToOriginalPositionWhenReleased = "false" visibility = "Green">
     <Image image="https://steamusercontent-a.akamaihd.net/ugc/54701168033008514/0651B031FFBF34BEF2714E9AA26ACDDCF88D50C6/"/>
     <TableLayout columnWidths = "60 60 60" padding = "100 0 125 0" cellBackgroundColor = "black" cellSpacing = "5" >
         <row preferredHeight = "30">
