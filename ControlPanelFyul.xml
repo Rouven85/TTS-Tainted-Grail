@@ -1,73 +1,70 @@
-<!-- <GridLayout
-    padding = "0 100 0 100"
-    childAlignment = "LowerRight"
-    >
-</GridLayout> -->
-<Panel id = "fyulUI" width = "400" height = "400" rectAlignment = "LowerRight" offsetXY = "-80 10" allowDragging = "true" returnToOriginalPositionWhenReleased = "false" visibility = "Green">
-    <Image image="https://steamusercontent-a.akamaihd.net/ugc/54701168033008514/0651B031FFBF34BEF2714E9AA26ACDDCF88D50C6/"/>
-    <TableLayout columnWidths = "60 60 60" padding = "100 0 125 0" cellBackgroundColor = "black" cellSpacing = "5" >
-        <row preferredHeight = "30">
+<Panel id = "fyulUI" width = "470" height = "560" rectAlignment = "LowerRight" offsetXY = "0 10" allowDragging = "true" returnToOriginalPositionWhenReleased = "false" visibility = "green">
+    <Image image="https://steamusercontent-a.akamaihd.net/ugc/54701168033197641/865CF6944C0BE863254A13F31964CDFDC27B4816/"/>
+    <TableLayout columnWidths = "60 60 60" padding = "120 0 170 0" cellBackgroundColor = "black" cellSpacing = "5" >
+        <row preferredHeight = "60">  
+            <cell>
+                <Button id = "White_coldMinusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
+            </cell>
+            <cell>
+                <Image image = "https://steamusercontent-a.akamaihd.net/ugc/54701801996067217/9511A6FDFFEA4269C040D33E588CBD813957352D/" width = "40" height = "40" color = "#FFFFFF80"/>
+            </cell>
+            <cell>
+            <Button id = "White_coldPlusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
+            </cell>
+        </row>
+        <row preferredHeight = "40">
             <cell>
                <Panel>
-                    <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
-                    <Button id = "energieMinusBtn" onClick = "energieCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
+                    <Button id = "White_energiePlusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
                </Panel>             
             </cell>
             <cell>
                 <Panel>
-                    <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
-                    <Button id = "gesundheitPlusBtn" onClick = "healthCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
+                    <Button id = "White_gesundheitPlusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
                 </Panel>  
             </cell>
             <cell>
                 <Panel>
-                    <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
-                    <Button id = "furchtPlusBtn" onClick = "furchtCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
+                    <Button id = "White_furchtPlusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">+</Button>
                 </Panel> 
                 </cell>
             </row>
-        <row preferredHeight = "50">
+        <row preferredHeight = "60">
             <cell>
                 <Panel>
-                    <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "60" color="#FFFFFF80"/> -->
-                    <text id = "energieValue" fontStyle = "Bold" fontSize = "25" color = "#1a0d00"> 6 </text>
+                    <text id = "White_energieValue" fontStyle = "Bold" fontSize = "25" color = "#1a0d00"> 6 </text>
                 </Panel>
             </cell>
             <cell>
                 <Panel>
-                    <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "60" color="#FFFFFF80"/> -->
-                    <text id = "healthValue" fontStyle = "Bold" fontSize = "25" color = "#1a0d00"> 8 </text>
+                    <text id = "White_healthValue" fontStyle = "Bold" fontSize = "25" color = "#1a0d00"> 8 </text>
                 </Panel>
             </cell>
             <cell>
                 <Panel>
-                    <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "60" color="#FFFFFF80"/>   -->
-                    <text id = "furchtValue" fontStyle = "Bold" fontSize = "25" color = "#1a0d00"> 0 </text>
+                    <text id = "White_furchtValue" fontStyle = "Bold" fontSize = "25" color = "#1a0d00"> 0 </text>
                 </Panel>
             </cell>
         </row>
-        <row preferredHeight = "30">
+        <row preferredHeight = "40">
             <cell> 
                 <Panel>
-                    <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
-                    <Button id = "energiePlusBtn" onClick = "energieCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
+                    <Button id = "White_energieMinusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
                 </Panel>
             </cell>
             <cell>
                 <Panel>
-                    <!-- <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
-                    <Button id = "gesundheitMinusBtn" onClick = "healthCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
+                    <Button id = "White_gesundheitMinusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
                 </Panel>
             </cell>
             <cell>
                 <Panel>
-                   <!--  <Image image= "https://steamusercontent-a.akamaihd.net/ugc/54700533762278459/72C8DDF00F857B3FBB9D67809F81290898A20E3E/" width = "57" color="#878787100"/> -->
-                    <Button id = "furchtMinusBtn" onClick = "furchtCounter" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
+                    <Button id = "White_furchtMinusBtn" onClick = "callCountMethod" color = "none" fontStyle = "Bold" fontSize = "25" textColor= "#1a0d00">-</Button>
                 </Panel>
             </cell>
         </row>
         
-        <row preferredHeight = "80" >
+        <row preferredHeight = "90" >
             <cell>
                 <Image image="https://steamusercontent-a.akamaihd.net/ugc/54700533762036748/5B1A4E17EB6B8CAA6896C9B3B0287CD2D2D04066/" color="#FFFFFF100"/>
             </cell>
@@ -79,5 +76,29 @@
             </cell>
         </row>
     </TableLayout>
+    <VerticalLayout width = "68" height = "310" offsetXY = "129 -40" spacing = "8" >
+        <Button padding = "0 0 2 0 " id = "Nahrung" onClick = "callCountMethod" color = "none">
+            <Text alignment = "UpperCenter" fontSize = "12" color = "#fafcd7">Nahrung</Text>
+            <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4" id = "White_nahrungValue" color = "#fafcd7">0</Text>
+        </Button>
+        <Button padding = "0 0 2 0 " id = "Reichtum" onClick = "callCountMethod" color = "none">
+            <Text alignment = "UpperCenter" fontSize = "12" color = "#fafcd7">Reichtum</Text>
+            <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4" id = "White_reichtumValue" color = "#fafcd7">0</Text>
+        </Button>
+        <Button padding = "0 0 2 0 " id = "Ansehen" onClick = "callCountMethod" color = "none"> 
+            <Text alignment = "UpperCenter" fontSize = "12" color = "#fafcd7">Ansehen</Text>
+            <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4" id = "White_ansehenValue" color = "#fafcd7">0</Text>
+        </Button>
+        <Button padding = "0 0 2 0 " id = "Erfahrung" onClick = "callCountMethod" color = "none">
+            <Text alignment = "UpperCenter" fontSize = "12" color = "#fafcd7">Erfahrung</Text>
+            <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4" id = "White_erfahrungValue" color = "#fafcd7">0</Text>
+        </Button>
+        <Button padding = "0 0 2 0 " id = "Magie" onClick = "callCountMethod" color = "none">
+            <Text alignment = "UpperCenter" fontSize = "12" color = "#fafcd7">Magie</Text>
+            <Text alignment = "MiddleCenter" fontSize = "20" fontStyle = "Bold" offsetXY = "0 -4" id = "White_magieValue" color = "#fafcd7">0</Text>
+        </Button>
+    </VerticalLayout> 
+    <Panel padding = "0 40 0 160" >
+        <text id = "White_coldValue" fontSize = "25" fontStyle = "Bold" color = "#0e316e">0</text>
+    </Panel>
 </Panel>
-
