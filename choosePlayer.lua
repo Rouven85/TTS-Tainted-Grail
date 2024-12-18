@@ -35,7 +35,6 @@ end
 
 function callback (obj)
     Wait.time(function()
-        
         getObjects(obj)
     end, 0.2)
 end
@@ -62,5 +61,27 @@ function spielerGewaehlt(playerColor, value, id)
 end
 
 function spielStarten (player, value, id)
-    log("Hallo")
+    log(id)
+    local board = getObjectFromGUID("47ea37")
+    local boardBounds = board.getBounds() 
+    local allObjects = getAllObjects()
+    local objectsOnBoard = {}
+    for _, obj in ipairs(allObjects) do
+        local objPos = obj.getPosition()
+
+        -- Prüfen, ob das Objekt innerhalb der Grenzen des Spielbretts liegt
+        if objPos.x > boardBounds.center.x - boardBounds.size.x / 2 and
+           objPos.x < boardBounds.center.x + boardBounds.size.x / 2 and
+           objPos.z > boardBounds.center.z - boardBounds.size.z / 2 and
+           objPos.z < boardBounds.center.z + boardBounds.size.z / 2 then
+            if obj.hasTag("CharakterBeschreibung") then
+                destroyObject(obj)
+            end
+        end
+        if  objPos.z < boardBounds.center.z - boardBounds.size.z / 2 then
+            if obj.hasTag("CharakterBeschreibung") then
+                obj.UI.setXml("")
+            end
+        end
+    end
 end

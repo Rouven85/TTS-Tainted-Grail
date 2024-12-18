@@ -4,11 +4,12 @@ function createPlayerButton(obj, playerID)
             tag="Button",
             attributes={
                 id = playerID,
-                height=25,
-                width=100,
-                position = "0 150 -10",
+                height=50,
+                width=150,
+                position = "0 -150 -10",
                 rotation = "0 0 180",
-                onClick = "Global/spielerGewaehlt"
+                onClick = "Global/spielerGewaehlt",
+                fontSize = "25"
                
             },
             value = "Auswählen", 
@@ -21,7 +22,7 @@ function startNewGameBtn(obj)
         {
             tag="Button",
             attributes={
-                id = playerID,
+                id = "",
                 height=100,
                 width=500,
                 fontSize = "64",
@@ -34,3 +35,4 @@ function startNewGameBtn(obj)
         }
     })
 end
+
