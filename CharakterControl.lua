@@ -50,8 +50,6 @@ function Charakter:setStartResources ()
     UI.setValue("ansehenValue", tostring(self.ansehen))
     UI.setValue("erfahrungValue", tostring(self.ep))
     UI.setValue("magieValue", tostring(self.magic))
-
-    
 end
 
 function Charakter:getAttributeSnaps()
@@ -354,12 +352,14 @@ function Charakter:coldCount (player, value, id)
             end
         else
             if currentHealth == self.health then
+                position = position + vector(0, 0.2, 0)
                 currentHealth = currentHealth - 1
                 healthMarker.setPosition(healthMarker.getPosition() - Vector(0,0,markerZValue) - Vector(0, 0, 0.05))
                 spawnObjectFromFile(url ,position, objectName)
                 UI.setValue(playerColor.. "_healthValue", currentHealth)
             else 
-                spawnObjectFromFile(url ,position, objectName)
+                position = position + vector(0, 0.2, 0)
+                spawnObjectFromFile(url ,position, objectName, callback)
             end 
         end
     elseif id == playerColor.. "_coldMinusBtn" and currentCold > self.death and currentCold <= self.cold then
@@ -549,32 +549,33 @@ function Charakter:magic (player, value, id)
 end
 
 
-function getObjects()
-    local objects = getAllObjects()
-    for _,object in ipairs(objects) do
-        if object.hasTag("PlayerBoard") then
+function getObjects(obj)
+    --local objects = getAllObjects()
+    log(obj.getName())
+    --for _,object in ipairs(objects) do
+        --if obj.hasTag("PlayerBoard") then
             
-            if object.getName() == "Dagan" then
-                dagan = Charakter.new(getObjectFromGUID(object.guid))
-                local snaps = dagan:getAttributeSnaps()
-                dagan:setAttributes(snaps)
-            elseif object.getName() == "Mabd" then
-                mabd = Charakter.new(getObjectFromGUID(object.guid))
-                local snaps = mabd:getAttributeSnaps()
-                mabd:setAttributes(snaps)
+            if obj.getName() == "Dagan" then
+                dagan = Charakter.new(getObjectFromGUID(obj.guid))
+                local snaps, name = dagan:getAttributeSnaps()
+                dagan:setAttributes(snaps, name)
+            elseif obj.getName() == "Mabd" then
+                mabd = Charakter.new(getObjectFromGUID(obj.guid))
+                local snaps, name = mabd:getAttributeSnaps()
+                mabd:setAttributes(snaps, name)
             
-            elseif object.getName() == "Sloan" then
-                sloan = Charakter.new(getObjectFromGUID(object.guid))
+            elseif obj.getName() == "Sloan" then
+                sloan = Charakter.new(getObjectFromGUID(obj.guid))
                 local snaps, name = sloan:getAttributeSnaps()
                 sloan:setAttributes(snaps, name)
                 sloan:setStartResources ()
                 --log(attributes)
-                return sloan
-            elseif object.getName() == "Fyul" then
-                fyul = Charakter.new(getObjectFromGUID(object.guid))
-                local snaps = fyul:getAttributeSnaps()
-                fyul:setAttributes(snaps)
+                
+            elseif obj.getName() == "Fyul" then
+                fyul = Charakter.new(getObjectFromGUID(obj.guid))
+                local snaps, name = fyul:getAttributeSnaps()
+                fyul:setAttributes(snaps, name)
             end
-        end
-    end
+        --end
+    --end
 end

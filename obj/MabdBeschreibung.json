@@ -1,0 +1,63 @@
+{
+  "Gravity": 0.5,
+  "PlayArea": 0.5,
+
+      "GUID": "0c4260",
+      "Name": "Custom_Tile",
+      "Transform": {
+        "posX": 10.8499975,
+        "posY": 1.06000042,
+        "posZ": -9.100048,
+        "rotX": 2.06177276E-07,
+        "rotY": 180.001785,
+        "rotZ": -4.61563332E-07,
+        "scaleX": 1.76,
+        "scaleY": 1.0,
+        "scaleZ": 1.76
+      },
+      "Nickname": "Mabd",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "Tags": [
+        "CharakterBeschreibung"
+      ],
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomImage": {
+        "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/2018216241556697282/FDAC76FA740B8AE8894EB11EA7187F0E41FC56C5/",
+        "ImageSecondaryURL": "https://steamusercontent-a.akamaihd.net/ugc/2018216241556697419/D4433738DB867B60FD311DB2EF1F735454ACB96C/",
+        "ImageScalar": 1.0,
+        "WidthScale": 0.0,
+        "CustomTile": {
+          "Type": 0,
+          "Thickness": 0.1,
+          "Stackable": false,
+          "Stretch": true
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    }

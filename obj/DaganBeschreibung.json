@@ -1,0 +1,62 @@
+{
+  "Gravity": 0.5,
+  "PlayArea": 0.5,
+      "GUID": "12027c",
+      "Name": "Custom_Tile",
+      "Transform": {
+        "posX": 4.65070724,
+        "posY": 1.06000042,
+        "posZ": -9.100003,
+        "rotX": 1.77395876E-07,
+        "rotY": 180.005753,
+        "rotZ": -4.973226E-07,
+        "scaleX": 1.76,
+        "scaleY": 1.0,
+        "scaleZ": 1.76
+      },
+      "Nickname": "Dagan",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "Tags": [
+        "CharakterBeschreibung"
+      ],
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomImage": {
+        "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/2018216241556696713/60E9FA56BCD681CB6BF8AB0BFAEE05367D0DF833/",
+        "ImageSecondaryURL": "https://steamusercontent-a.akamaihd.net/ugc/2018216241556696859/362F9FBBEC3347A5BC3244C558D385D02E08BD73/",
+        "ImageScalar": 1.0,
+        "WidthScale": 0.0,
+        "CustomTile": {
+          "Type": 0,
+          "Thickness": 0.1,
+          "Stackable": false,
+          "Stretch": true
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    }

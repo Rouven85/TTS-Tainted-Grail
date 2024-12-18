@@ -4,17 +4,19 @@ require("CamPositions")
 require("SetupGame")
 require("CharakterControl")
 require("spawnObjectwithURL")
+require("choosePlayer")
 
 
-
-function onLoad()    
+function onLoad()   
     initLoadedMap()
-    getObjects()
+    chooseNewPlayer()
+
 end
 
 function onObjectSpawn(object)
     initSpawnedMap(object)
     createSetupBtn(object)
+    
 end
 
 

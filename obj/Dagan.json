@@ -1,0 +1,227 @@
+{
+  "Gravity": 0.5,
+  "PlayArea": 0.5,
+
+      "GUID": "adb118",
+      "Name": "Custom_Tile",
+      "Transform": {
+        "posX": -27.0,
+        "posY": 0.9599949,
+        "posZ": -20.0,
+        "rotX": 3.372495E-05,
+        "rotY": 180.0,
+        "rotZ": -0.000102314516,
+        "scaleX": 2.61,
+        "scaleY": 1.0,
+        "scaleZ": 2.61
+      },
+      "Nickname": "Dagan",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "Tags": [
+        "PlayerBoard"
+      ],
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomImage": {
+        "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/2018215612343780324/C595496FD8E4A56792747A1E11F9934EAD6AABE8/",
+        "ImageSecondaryURL": "https://steamusercontent-a.akamaihd.net/ugc/2018215612343781404/979FD720259DA65B55FFFBB53181378BBD656313/",
+        "ImageScalar": 1.0,
+        "WidthScale": 0.0,
+        "CustomTile": {
+          "Type": 0,
+          "Thickness": 0.1,
+          "Stackable": false,
+          "Stretch": true
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": "",
+      "AttachedSnapPoints": [
+        {
+          "Position": {
+            "x": 0.305321336,
+            "y": 0.100000143,
+            "z": -0.317206621
+          },
+          "Rotation": {
+            "x": -1.83516722E-08,
+            "y": 0.006338415,
+            "z": -4.5117627E-08
+          }
+        },
+        {
+          "Position": {
+            "x": 1.36853325,
+            "y": 0.100000143,
+            "z": -0.7911846
+          },
+          "Tags": [
+            "AgrSnap"
+          ]
+        },
+        {
+          "Position": {
+            "x": 1.36853242,
+            "y": 0.100000143,
+            "z": -0.4885008
+          },
+          "Tags": [
+            "AgrSnap"
+          ]
+        },
+        {
+          "Position": {
+            "x": 1.36853158,
+            "y": 0.100000143,
+            "z": -0.1514964
+          },
+          "Tags": [
+            "MutSnap"
+          ]
+        },
+        {
+          "Position": {
+            "x": 1.36852992,
+            "y": 0.100000143,
+            "z": 0.151187435
+          },
+          "Tags": [
+            "MutSnap"
+          ]
+        },
+        {
+          "Position": {
+            "x": 1.3685298,
+            "y": 0.100000143,
+            "z": 0.486285239
+          },
+          "Tags": [
+            "PragSnap"
+          ]
+        },
+        {
+          "Position": {
+            "x": 1.36852825,
+            "y": 0.100000143,
+            "z": 0.78896904
+          },
+          "Tags": [
+            "PragSnap"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.359441,
+            "y": 0.100000143,
+            "z": -0.794994354
+          },
+          "Tags": [
+            "MitSnap"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.35944259,
+            "y": 0.100000143,
+            "z": -0.49614206
+          },
+          "Tags": [
+            "MitSnap"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.36193168,
+            "y": 0.100000143,
+            "z": -0.156734824
+          },
+          "Tags": [
+            "VorSnap"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.36193335,
+            "y": 0.100000143,
+            "z": 0.1421175
+          },
+          "Tags": [
+            "VorSnap"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.36193347,
+            "y": 0.100000143,
+            "z": 0.494358033
+          },
+          "Tags": [
+            "SpiritSnap"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.36226535,
+            "y": 0.100000143,
+            "z": 0.798119
+          },
+          "Tags": [
+            "SpiritSnap"
+          ]
+        },
+        {
+          "Position": {
+            "x": -0.717355251,
+            "y": 0.100000143,
+            "z": -0.3475294
+          },
+          "Tags": [
+            "EnergySnap"
+          ]
+        },
+        {
+          "Position": {
+            "x": -0.885999,
+            "y": 0.100000143,
+            "z": -0.846222937
+          },
+          "Tags": [
+            "HealthSnap"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.057267,
+            "y": 0.100000143,
+            "z": 0.441351354
+          },
+          "Tags": [
+            "FurchtSnap"
+          ]
+        }
+      ]
+    }

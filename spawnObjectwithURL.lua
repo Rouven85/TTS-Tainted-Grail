@@ -2,7 +2,7 @@ function spawnObjectFromFile(url ,position, objectName, callback)
     -- JSON-Datei herunterladen
     WebRequest.get(url, function(response)
         if response.is_error then
-            print("Fehler beim Laden des JSON-Files: " .. response.error)
+            --print("Fehler beim Laden des JSON-Files: " .. response.error)
         else
             local objectJSON = response.text
             -- Objekt mit dem geladenen JSON spawnen
@@ -12,8 +12,10 @@ function spawnObjectFromFile(url ,position, objectName, callback)
                 callback_function = function(obj)
                     obj.setName(objectName)
                     if callback then
+                        log("wird ausgeführt")
                         callback(obj)
                     end
+                
                 end
             })
         end

@@ -1,0 +1,63 @@
+{
+  "Gravity": 0.5,
+  "PlayArea": 0.5,
+
+      "GUID": "132bf0",
+      "Name": "Custom_Tile",
+      "Transform": {
+        "posX": -1.54893816,
+        "posY": 1.0600003,
+        "posZ": -9.100107,
+        "rotX": 2.05738459E-07,
+        "rotY": 180.0007,
+        "rotZ": -5.114261E-07,
+        "scaleX": 1.76065,
+        "scaleY": 1.0,
+        "scaleZ": 1.76065
+      },
+      "Nickname": "Fyul",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "Tags": [
+        "CharakterBeschreibung"
+      ],
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomImage": {
+        "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/2018216241556697000/651B86B7FEBA4045304C9AD2D56305593DDBC585/",
+        "ImageSecondaryURL": "https://steamusercontent-a.akamaihd.net/ugc/2018216241556697134/55CAFD8AD263009AE48C4B2BC6FB0CEFF01FE9C1/",
+        "ImageScalar": 1.0,
+        "WidthScale": 0.0,
+        "CustomTile": {
+          "Type": 0,
+          "Thickness": 0.1,
+          "Stackable": false,
+          "Stretch": true
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    }
