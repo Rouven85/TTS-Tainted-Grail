@@ -36,8 +36,15 @@
             urlBeschreibung = "https://steamusercontent-a.akamaihd.net/ugc/54703244189526150/31540469AF1F18166D5C0D016207E967BAE67D2E/",
             
             energie = 6,
+            energieBonus = 2,
+            erschoepft = 1,
             health = 8,
+            healthOffset = 0,
+            death = 0,
             furcht = 0,
+            wahnsinn = 5,
+            wahnsinnMax = 6,
+            cold = 8,
 
             aggression = 1,
             mut = 2,

@@ -65,10 +65,13 @@ function spielStarten (player, value, id)
     local board = getObjectFromGUID("47ea37")
     local boardBounds = board.getBounds() 
     local allObjects = getAllObjects()
+    local startKarte = nil
     local objectsOnBoard = {}
     for _, obj in ipairs(allObjects) do
         local objPos = obj.getPosition()
-
+        if obj.getName() == "Eiswüste" then
+            startKarte = obj
+        end
         -- Prüfen, ob das Objekt innerhalb der Grenzen des Spielbretts liegt
         if objPos.x > boardBounds.center.x - boardBounds.size.x / 2 and
            objPos.x < boardBounds.center.x + boardBounds.size.x / 2 and
@@ -81,6 +84,10 @@ function spielStarten (player, value, id)
         if  objPos.z < boardBounds.center.z - boardBounds.size.z / 2 then
             if obj.hasTag("CharakterBeschreibung") then
                 obj.UI.setXml("")
+            end
+            if obj.hasTag("Spielfigur") then
+                local spielfigur = obj
+                spielfigur.setPosition(startKarte.getPosition())
             end
         end
     end
